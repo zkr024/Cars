@@ -14,7 +14,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 code {
@@ -26,18 +25,17 @@ code {
     'Courier New',
     monospace;
 }
-.frame{
+
+.frame {
   display: flex;
   height: 100%;
 }
 
 .user-container,
-.home-container
-{
+.home-container {
   height: 100vh;
 }
 
-.nav-frame{
+.nav-frame {
   width: 15%;
-  
 }
