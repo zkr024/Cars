@@ -1,0 +1,68 @@
+h1 {
+  text-align: center;
+}
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.left,
+.right {
+  color: #97bf11;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.carsContainer {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cover {
+  position: relative;
+  width: 90%;
+  height: 50%;
+}
+
+.cover::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  width: 80px;
+  background-image: linear-gradient(-90deg, #fff, transparent);
+}
+
+.cover::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  width: 80px;
+  background-image: linear-gradient(90deg, #fff, transparent);
+}
+
+.scroll-images {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: auto;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.scroll-images::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
