@@ -2,51 +2,21 @@ import React, { useState } from 'react';
 // import ReactDOM from "react-dom";
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../redux/users/user';
+import { loginUser, getUser } from '../../redux/users/user';
 
 function Login() {
-  // const { email, password } = document.forms[0];
   // React States
   // const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  //   const errors = {
-  //   uname: "invalid username ",
-  //   pass: "invalid password"
-  //   };
-
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(loginUser(formDataObj.email, formDataObj.password));
+    dispatch(getUser(formDataObj.email));
     setIsSubmitted(true);
   };
-
-  //   const handleSubmit = (event) => {
-  //  Prevent page reload
-  // event.preventDefault();
-  // Find user login info
-  // const userData = database.find((user) => user.username === uname.value);
-
-  // Compare user info
-  // if (userData) {
-  //   if (userData.password !== pass.value) {
-  //   // Invalid password
-  //   setErrorMessages({ name: "pass", message: errors.pass });
-  //   } else {
-  //   setIsSubmitted(true);
-  //   }
-  // } else {
-  //   // Username not found
-  //   setErrorMessages({ name: "uname", message: errors.uname });
-  // }
-  //   };
-
-  // Generate JSX code for error message
-  // const renderErrorMessage = (name) => name === errorMessages.name &&
-  // (<div className="error">{errorMessages.message}</div>);
 
   // JSX code for login form
   const renderForm = (
@@ -75,7 +45,7 @@ function Login() {
     <div className="app">
       <div className="login-form">
         <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        {isSubmitted ? <div>User authenticated</div> : renderForm}
       </div>
     </div>
   );
