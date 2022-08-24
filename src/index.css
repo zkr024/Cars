@@ -34,6 +34,7 @@ code {
 .user-container,
 .home-container {
   height: 100vh;
+  width: 85%;
 }
 
 .nav-frame {

@@ -4,10 +4,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import carsReducer from './cars/carsPage';
+import myCarsReducer from '../cars/frontPage';
+import detailReducer from '../cars/details';
 
 const reducers = combineReducers({
-  car: carsReducer,
+  list: myCarsReducer,
+  detail: detailReducer,
 });
 
 const store = createStore(

@@ -1,13 +1,12 @@
-/* eslint-disable linebreak-style */
 import axios from 'axios';
 
-const CARS = 'cars/cars/CARS';
+const MY_CARS = 'cars/cars/MY_CARS';
 
 const api = 'http://localhost:3000/users/';
 
-const carsReducer = (state = [], action) => {
+const myCarsReducer = (state = [], action) => {
   switch (action.type) {
-    case CARS:
+    case MY_CARS:
       return action.payload;
     default:
       return state;
@@ -17,10 +16,10 @@ const carsReducer = (state = [], action) => {
 const loadInfo = (id) => async (dispatch) => {
   const res = await axios.get(`${api}${id}/selections`);
   dispatch({
-    type: CARS,
+    type: MY_CARS,
     payload: res,
   });
 };
 
-export default carsReducer;
+export default myCarsReducer;
 export { loadInfo };
