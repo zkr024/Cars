@@ -7,6 +7,7 @@ import Home from './components/Home';
 import NavCars from './shared/navCars';
 import User from './components/users/User';
 import Login from './components/users/Login';
+import Appointment from './components/appointments/Appointment';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/users/:userId" element={<FrontPage />} />
             <Route path="/users/:userId/cars" element={<AllCars />} />
             <Route path="/users/:userId/cars/:carId" element={<Car />} />
+            <Route path="/users/:userId/cars/:carId/appointment" element={<Appointment />} />
           </Routes>
         </div>
       </>

@@ -33,7 +33,7 @@ const Car = () => {
             />
           </div>
         )}
-      <Link to="/">Appointment</Link>
+      <Link to={`/users/${userId}/cars/${carId}/appointment`}>Appointment</Link>
     </div>
   );
 };
