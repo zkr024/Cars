@@ -13,7 +13,7 @@ const allCountriesReducer = (state = [], action) => {
   }
 };
 
-const allCounties = () => async (dispatch) => {
+const allCountries = () => async (dispatch) => {
   const res = await axios.get(api);
   dispatch({
     type: COUNTRIES,
@@ -22,4 +22,4 @@ const allCounties = () => async (dispatch) => {
 };
 
 export default allCountriesReducer;
-export { allCounties };
+export { allCountries };
