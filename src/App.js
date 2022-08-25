@@ -1,28 +1,31 @@
-import './App.css';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Access from './components/Access';
+import CarsPage from './components/frontPage/FrontPage';
+import Car from './components/details/Car';
+import AllCars from './components/car/AllCars';
+import Home from './components/Home';
 import NavCars from './shared/navCars';
 import User from './components/users/User';
-import Home from './components/Home';
+import Login from './components/users/Login';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app">
-        <>
-          <div className="frame">
-            <NavCars />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/user" element={<User />} />
-            </Routes>
-          </div>
-        </>
-      </div>
-    </BrowserRouter>
+    <div className="app">
+      <>
+        <div className="frame">
+          <NavCars />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/user" element={<User />} />
+            <Route path="/access" element={<Access />} />
+            <Route path="/users/:userId" element={<CarsPage />} />
+            <Route path="/users/:userId/cars" element={<AllCars />} />
+            <Route path="/cars/:carId" element={<Car />} />
+          </Routes>
+        </div>
+      </>
+    </div>
   );
 }
 

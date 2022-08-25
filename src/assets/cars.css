@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+.slide {
+  margin-top: 50px;
+}
+
+.imgHolder {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.carousel-inner {
+  height: 500px;
+  display: flex;
+}
