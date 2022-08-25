@@ -6,13 +6,13 @@ import React, { useEffect } from 'react';
 import { getDetails } from '../../redux/cars/details';
 
 const Car = () => {
-  const { carId } = useParams();
+  const { carId, userId } = useParams();
 
   const details = useSelector((state) => state.detail);
   const dispatch = useDispatch();
   const value = details.data;
 
-  useEffect(() => { dispatch(getDetails(carId)); }, []);
+  useEffect(() => { dispatch(getDetails(userId, carId)); }, []);
 
   return (
     <div className="user-container" data-testid="user-a">

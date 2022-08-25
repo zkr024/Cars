@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
 import { loadInfo } from '../../redux/cars/frontPage';
 
-import '../../assets/cars.css';
+import '../../assets/front.css';
 
 const FrontPage = () => {
   const { userId } = useParams();
@@ -42,7 +42,7 @@ const FrontPage = () => {
           : (
             cars.data.map((value) => (
               <Carousel.Item key={value.car.id}>
-                <Link to={`/cars/${value.car.id}`}>
+                <Link to={`/users/${userId}/cars/${value.car.id}`}>
                   <div className="imgHolder">
                     <img
                       className="d-block w-100"
