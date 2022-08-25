@@ -5,6 +5,8 @@ import {
   Link,
 } from 'react-router-dom';
 
+// const { isAuthenticated } = this.props
+
 function NavCars() {
   return (
     <Navbar className="nav-frame" collapseOnSelect expand="lg" bg="dark" variant="dark">
