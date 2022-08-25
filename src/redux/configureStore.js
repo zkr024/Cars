@@ -5,6 +5,7 @@ import myCarsReducer from './cars/frontPage';
 import detailReducer from './cars/details';
 import allCarsReducer from './cars/allCars';
 import middleware from './middleware';
+import allCitiesReducer from '../redux/cities/'
 
 const rootReducer = combineReducers({
   users,
