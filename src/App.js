@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Access from './components/Access';
-import CarsPage from './components/frontPage/FrontPage';
+import FrontPage from './components/frontPage/FrontPage';
 import Car from './components/details/Car';
 import AllCars from './components/car/AllCars';
 import Home from './components/Home';
@@ -19,9 +19,9 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/user" element={<User />} />
             <Route path="/access" element={<Access />} />
-            <Route path="/users/:userId" element={<CarsPage />} />
+            <Route path="/users/:userId" element={<FrontPage />} />
             <Route path="/users/:userId/cars" element={<AllCars />} />
-            <Route path="/cars/:carId" element={<Car />} />
+            <Route path="/users/:userId/cars/:carId" element={<Car />} />
           </Routes>
         </div>
       </>
