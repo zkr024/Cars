@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import ReactDOM from "react-dom";
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { loginUser, getUser } from '../../redux/users/user';
@@ -16,6 +15,7 @@ function Login() {
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
     setIsSubmitted(true);
+    window.location.href = '/access';
   };
 
   // JSX code for login form
@@ -42,10 +42,12 @@ function Login() {
   );
 
   return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User authenticated</div> : renderForm}
+    <div className="user-container" data-testid="user-a">
+      <div className="app">
+        <div className="login-form">
+          <div className="title">Sign In</div>
+          {isSubmitted ? <div>User authenticated</div> : renderForm}
+        </div>
       </div>
     </div>
   );

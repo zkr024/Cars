@@ -17,6 +17,9 @@ function NavCars() {
           <Nav className="flex-column">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/user">Users</Nav.Link>
+            <Nav.Link as={Link} to="/access">Access</Nav.Link>
+            <Nav.Link as={Link} to="/users/:userId">My List</Nav.Link>
+            <Nav.Link as={Link} to="/users/:userId/cars">Add Car</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
