@@ -35,6 +35,7 @@ code {
 .home-container {
   height: 100vh;
   width: 85%;
+  margin: 20px 50px;
 }
 
 .nav-frame {
