@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CITIES = 'country/country/CITIES';
+const CITIES = 'city/city/CITIES';
 
 const api = 'http://localhost:3000/cities/';
 
