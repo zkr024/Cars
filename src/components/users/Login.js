@@ -10,6 +10,7 @@ function Login() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
+    event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(loginUser(formDataObj.email, formDataObj.password));
