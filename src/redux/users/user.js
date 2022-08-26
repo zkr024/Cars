@@ -42,9 +42,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 export const getUser = (email) => async (dispatch) => {
   try {
     const data = { email: `${email}` };
-    // const userInfo = JSON.stringify(data);
     const params = JSON.stringify(data);
-    //  new url.URLSearchParams(data);
     const res = await ApiServices.getUserByEmail(params);
     if (res.data) {
       localStorage.setItem('user_id', JSON.stringify(res.data.id));
@@ -56,5 +54,39 @@ export const getUser = (email) => async (dispatch) => {
     return true;
   } catch (err) {
     return Promise.reject(err);
+  }
+};
+
+export const createUser = (name, email, password,
+  password_confirmation, age, phone) => async (dispatch) => {
+  try {
+    const userInfo = {
+      user: {
+        name,
+        email,
+        password,
+        password_confirmation,
+        age,
+        phone,
+      },
+    };
+    const params = JSON.stringify(userInfo);
+    const response = await ApiServices.createUser(params);
+    // .then(function (response) {
+    //   if (response.data.status === 'created') {
+    //     console.log('Registration data', response.data)
+    //   }
+    // })
+    // .catch(function (error) {
+    //   console.log('registration error', error);
+    // });
+    dispatch({
+      type: CREATE_USER,
+      payload: response.data,
+    });
+    return response;
+  } catch (error) {
+    console.log('registration error', error);
+    return Promise.reject(error);
   }
 };
