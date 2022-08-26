@@ -15,6 +15,7 @@ function NavCars() {
         <Navbar.Toggle className="ml-auto" aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="flex-column">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/access">Access</Nav.Link>
             <Nav.Link as={Link} to="/users/:userId">My List</Nav.Link>
             <Nav.Link as={Link} to="/users/3/cars">Add Car</Nav.Link>
