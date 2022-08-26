@@ -1,4 +1,6 @@
+/* eslint-disable no-console */
 import axios from 'axios';
+import accessToken from './accessToken';
 
 const MY_CARS = 'cars/cars/MY_CARS';
 
@@ -14,11 +16,18 @@ const myCarsReducer = (state = [], action) => {
 };
 
 const loadInfo = (id) => async (dispatch) => {
-  const res = await axios.get(`${api}${id}/selections`);
-  dispatch({
-    type: MY_CARS,
-    payload: res,
-  });
+  try {
+    const res = await axios.get(`${api}${id}/selections`, {
+      headers: { Authorization: accessToken() },
+    });
+    dispatch({
+      type: MY_CARS,
+      payload: res,
+    });
+  } catch (error) {
+    console.log('error:');
+    console.log(error.message);
+  }
 };
 
 export default myCarsReducer;

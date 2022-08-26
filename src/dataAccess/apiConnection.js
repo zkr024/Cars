@@ -7,10 +7,11 @@ const axiosBasic = () => axios.create({
   },
 });
 
-const axiosJWT = (token) => axios.create({
+const axiosJWT = () => axios.create({
   baseURL: 'http://localhost:3000',
+  timeout: 1000,
   headers: {
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${localStorage.token}`,
   },
 });
 

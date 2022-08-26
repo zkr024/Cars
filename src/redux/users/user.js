@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import ApiServices from '../../dataAccess/apiServices';
 
 //  actions
@@ -18,8 +19,6 @@ export default function users(state = [], action) {
       return state;
   }
 }
-
-//  action creators
 
 export const loginUser = (email, password) => async (dispatch) => {
   try {
@@ -42,9 +41,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 export const getUser = (email) => async (dispatch) => {
   try {
     const data = { email: `${email}` };
-    // const userInfo = JSON.stringify(data);
     const params = JSON.stringify(data);
-    //  new url.URLSearchParams(data);
     const res = await ApiServices.getUserByEmail(params);
     if (res.data) {
       localStorage.setItem('user_id', JSON.stringify(res.data.id));
@@ -53,8 +50,31 @@ export const getUser = (email) => async (dispatch) => {
       type: GET_USER,
       payload: res.data,
     });
-    return true;
-  } catch (err) {
-    return Promise.reject(err);
+    return Promise.resolve(res.data);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const createUser = (name, email, password,
+  password_confirmation, age, phone) => async (dispatch) => {
+  try {
+    const userInfo = {
+      name,
+      email,
+      password,
+      password_confirmation,
+      age,
+      phone,
+    };
+    const params = JSON.stringify(userInfo);
+    const response = await ApiServices.createUser(params);
+    dispatch({
+      type: CREATE_USER,
+      payload: response.data,
+    });
+    return Promise.resolve(response.data);
+  } catch (error) {
+    return Promise.reject(error);
   }
 };

@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginUser, getUser } from '../../redux/users/user';
+import checkData from './checkData';
 
 function Login() {
-  // React States
-  // const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
+
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-    setIsSubmitted(true);
-    window.location.href = '/access';
+
+    setTimeout(() => { checkData(setIsSubmitted); }, 500);
   };
 
-  // JSX code for login form
   const renderForm = (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control name="email" type="email" placeholder="Enter email" />
         {/* {renderErrorMessage("email")} */}
-        <Form.Text className="text-muted">
-          We will never share your email with anyone else.
-        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -38,6 +36,9 @@ function Login() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <Form.Group className="mb-3" controlId="formBasicSignUp">
+        <Link to="/user">Sign Up</Link>
+      </Form.Group>
     </Form>
   );
 
