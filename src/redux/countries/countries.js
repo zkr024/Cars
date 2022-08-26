@@ -22,7 +22,7 @@ export const allCountries = () => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
     const response = await axios.get(api);
-    dispatch(getCountryAPI(response));
+    dispatch(getCountryAPI(response.data));
   }, 1000);
   Loading = true;
 };
