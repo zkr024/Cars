@@ -7,6 +7,8 @@ import {
 
 // const { isAuthenticated } = this.props
 
+const user = localStorage.getItem('user_id');
+
 function NavCars() {
   return (
     <Navbar className="nav-frame" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -17,8 +19,7 @@ function NavCars() {
           <Nav className="flex-column">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/access">Access</Nav.Link>
-            <Nav.Link as={Link} to="/users/:userId">My List</Nav.Link>
-            <Nav.Link as={Link} to="/users/3/cars">Add Car</Nav.Link>
+            <Nav.Link as={Link} to={`/users/${user}/cars`}>Add Car</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

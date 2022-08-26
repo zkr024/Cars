@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import accessToken from '../../redux/cars/accessToken';
 
 const CarCard = (props) => {
   const {
@@ -23,7 +24,9 @@ const CarCard = (props) => {
   };
 
   const newCar = async () => {
-    await axios.post(`http://localhost:3000/users/${userId}/selections`, object);
+    await axios.post(`http://localhost:3000/users/${userId}/selections`, object, {
+      headers: { Authorization: accessToken() },
+    });
   };
 
   return (

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from './accessToken';
 
 const ALL_CARS = 'cars/cars/ALL_CARS';
 
@@ -14,7 +15,9 @@ const allCarsReducer = (state = [], action) => {
 };
 
 const allCars = (id) => async (dispatch) => {
-  const res = await axios.get(`${api}${id}/cars`);
+  const res = await axios.get(`${api}${id}/cars`, {
+    headers: { Authorization: accessToken() },
+  });
   dispatch({
     type: ALL_CARS,
     payload: res,

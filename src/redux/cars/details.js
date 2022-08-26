@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from './accessToken';
 
 const DETAILS = 'cars/cars/DETAILS';
 
@@ -14,7 +15,9 @@ const detailReducer = (state = [], action) => {
 };
 
 const getDetails = (id, carId) => async (dispatch) => {
-  const res = await axios.get(`${api}${id}/cars/${carId}`);
+  const res = await axios.get(`${api}${id}/cars/${carId}`, {
+    headers: { Authorization: accessToken() },
+  });
   dispatch({
     type: DETAILS,
     payload: res,
