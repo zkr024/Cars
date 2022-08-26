@@ -23,7 +23,7 @@ export const allCities = (countryId) => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
     const response = await axios.get(`${api}${countryId}`);
-    dispatch(getCitiesAPI(response));
+    dispatch(getCitiesAPI(response.data));
   }, 1000);
   Loading = true;
 };
