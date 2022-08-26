@@ -14,8 +14,13 @@ function Login() {
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-    setIsSubmitted(true);
-    window.location.href = '/access';
+    if (localStorage.getItem('token') !== null) {
+      setIsSubmitted(true);
+      const user = localStorage.getItem('user_id');
+      window.location.href = `/users/${user}`;
+    } else {
+      setIsSubmitted(false);
+    }
   };
 
   const renderForm = (

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import ApiServices from '../../dataAccess/apiServices';
 
 //  actions
@@ -18,8 +19,6 @@ export default function users(state = [], action) {
       return state;
   }
 }
-
-//  action creators
 
 export const loginUser = (email, password) => async (dispatch) => {
   try {
@@ -51,9 +50,9 @@ export const getUser = (email) => async (dispatch) => {
       type: GET_USER,
       payload: res.data,
     });
-    return true;
-  } catch (err) {
-    return Promise.reject(err);
+    return Promise.resolve(res.data);
+  } catch (error) {
+    return Promise.reject(error);
   }
 };
 
@@ -61,32 +60,21 @@ export const createUser = (name, email, password,
   password_confirmation, age, phone) => async (dispatch) => {
   try {
     const userInfo = {
-      user: {
-        name,
-        email,
-        password,
-        password_confirmation,
-        age,
-        phone,
-      },
+      name,
+      email,
+      password,
+      password_confirmation,
+      age,
+      phone,
     };
     const params = JSON.stringify(userInfo);
     const response = await ApiServices.createUser(params);
-    // .then(function (response) {
-    //   if (response.data.status === 'created') {
-    //     console.log('Registration data', response.data)
-    //   }
-    // })
-    // .catch(function (error) {
-    //   console.log('registration error', error);
-    // });
     dispatch({
       type: CREATE_USER,
       payload: response.data,
     });
-    return response;
+    return Promise.resolve(response.data);
   } catch (error) {
-    console.log('registration error', error);
     return Promise.reject(error);
   }
 };

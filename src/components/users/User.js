@@ -2,14 +2,26 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+// import axios from 'axios';
 import { createUser } from '../../redux/users/user';
 
 const User = () => {
   const dispatch = useDispatch();
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
+    // const userInfo = {
+    //     'name': formDataObj.name,
+    //     'email': formDataObj.email,
+    //     'password': formDataObj.password,
+    //     'password_confirmation': formDataObj.password_confirmation,
+    //     'age': formDataObj.age,
+    //     'phone': formDataObj.phone,
+    // };
+    // const params = JSON.stringify(userInfo);
+    //  await axios.post(`http://localhost:3000/users`, userInfo);
+      
     dispatch(createUser(
       formDataObj.name,
       formDataObj.email,
@@ -18,8 +30,8 @@ const User = () => {
       formDataObj.age,
       formDataObj.phone,
     ));
-    window.location.href = '/login';
-  };
+    window.location.href = '/';
+    }
   return (
     <div className="user-container" data-testid="user-a">
       <Form onSubmit={handleSubmit}>
