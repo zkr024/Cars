@@ -23,7 +23,7 @@ export const allSellers = () => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
     const response = await axios.get(api);
-    dispatch(getSellersAPI(response));
+    dispatch(getSellersAPI(response.data));
   }, 1000);
   Loading = true;
 };
