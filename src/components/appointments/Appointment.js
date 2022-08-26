@@ -11,6 +11,10 @@ const Appointment = () => {
   const dispatch = useDispatch();
   // const countries = useSelector((state) => state.countries);
   // const cities = useSelector((state) => state.cities);
+  const sellers = useSelector((state) => state.sellers);
+
+  console.log(sellers);
+
   const countryId = '1';
   // const { userId, carId } = useParams();
   // console.log('UserId '+ userId);
@@ -18,6 +22,7 @@ const Appointment = () => {
   useEffect(() => {
     dispatch(allCities(countryId));
     dispatch(allCountries());
+    dispatch(allSellers());
   }, [dispatch]);
 
   // useEffect(() => {
