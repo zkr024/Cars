@@ -3,25 +3,21 @@ import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginUser, getUser } from '../../redux/users/user';
+import checkData from './checkData';
 
 function Login() {
-  // React States
-  // const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
+
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-    if (localStorage.getItem('token') !== null) {
-      setIsSubmitted(true);
-      const user = localStorage.getItem('user_id');
-      window.location.href = `/users/${user}`;
-    } else {
-      setIsSubmitted(false);
-    }
+
+    setTimeout(() => { checkData(setIsSubmitted); }, 500);
   };
 
   const renderForm = (
