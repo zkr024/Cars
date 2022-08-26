@@ -7,6 +7,7 @@ import allCarsReducer from './cars/allCars';
 import middleware from './middleware';
 import allCitiesReducer from './cities/cities';
 import allCountriesReducer from './countries/countries';
+import allSellersReducer from './sellers/sellers'
 
 const rootReducer = combineReducers({
   users,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   car: allCarsReducer,
   cities: allCitiesReducer,
   countries: allCountriesReducer,
+  sellers: allSellersReducer,
 });
 const store = configureStore({
   reducer: rootReducer,
