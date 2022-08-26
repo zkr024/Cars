@@ -21,7 +21,7 @@ const User = () => {
     // };
     // const params = JSON.stringify(userInfo);
     //  await axios.post(`http://localhost:3000/users`, userInfo);
-      
+
     dispatch(createUser(
       formDataObj.name,
       formDataObj.email,
@@ -31,7 +31,7 @@ const User = () => {
       formDataObj.phone,
     ));
     window.location.href = '/';
-    }
+  };
   return (
     <div className="user-container" data-testid="user-a">
       <Form onSubmit={handleSubmit}>
