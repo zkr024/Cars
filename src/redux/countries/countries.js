@@ -21,7 +21,7 @@ export function getCountryAPI(countries) {
 export const allCountries = () => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
-    const response = await await axios.get(api);
+    const response = await axios.get(api);
     dispatch(getCountryAPI(response));
   }, 1000);
   Loading = true;
