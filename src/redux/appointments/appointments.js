@@ -16,7 +16,7 @@ export function getAppointmentAPI(appointments) {
     city_id: appointment.city_id,
     duration: appointment.duration,
     branch: appointment.branch,
-    date: appointment.date_for,
+    date_for: appointment.date_for,
   }));
   return {
     type: APPOINTMENTS,
