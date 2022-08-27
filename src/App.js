@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import Access from './components/Access';
 import FrontPage from './components/frontPage/FrontPage';
 import Car from './components/details/Car';
@@ -9,13 +10,17 @@ import User from './components/users/User';
 import Login from './components/users/Login';
 
 function App() {
+  const [objAuth, setAuthenticated] = useState({ authenticated: false });
+  const handleCallback = (authValue) => {
+    setAuthenticated({ authenticated: authValue });
+  };
   return (
     <div className="app">
       <>
         <div className="frame">
-          <NavCars />
+          <NavCars classType={(objAuth.authenticated) ? 'nav-visible' : 'nav-hidden'} />
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Login handleClick={handleCallback} />} />
             <Route path="/home" element={<Home />} />
             <Route path="/user" element={<User />} />
             <Route path="/access" element={<Access />} />

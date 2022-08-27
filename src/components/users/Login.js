@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { loginUser, getUser } from '../../redux/users/user';
 import checkData from './checkData';
+import { browserHistory } from 'react-router'
 
-function Login() {
+function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
-
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-
-    setTimeout(() => { checkData(setIsSubmitted); }, 500);
+    // setTimeout(() => { checkData(setIsSubmitted); }, 2000);
+    handleClick(true);
+    // navigate(`/home`);
+    browserHistory.push('/home')
   };
 
   const renderForm = (
@@ -53,5 +56,9 @@ function Login() {
     </div>
   );
 }
+
+Login.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default Login;

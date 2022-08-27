@@ -4,14 +4,13 @@ import {
 import {
   Link,
 } from 'react-router-dom';
-
-// const { isAuthenticated } = this.props
+import PropTypes from 'prop-types';
 
 const user = localStorage.getItem('user_id');
-
-function NavCars() {
+const NavCars = (props) => {
+  const { classType } = props;
   return (
-    <Navbar className="nav-frame" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar className={classType} collapseOnSelect expand="lg" bg="dark" variant="dark">
       {/* <Navbar.Brand href="#home">Cars</Navbar.Brand> */}
       <Container className="nav-container">
         <Navbar.Toggle className="ml-auto" aria-controls="responsive-navbar-nav" />
@@ -25,6 +24,9 @@ function NavCars() {
       </Container>
     </Navbar>
   );
-}
+};
 
+NavCars.propTypes = {
+  classType: PropTypes.string.isRequired,
+};
 export default NavCars;
