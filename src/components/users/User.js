@@ -11,17 +11,6 @@ const User = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
-    // const userInfo = {
-    //     'name': formDataObj.name,
-    //     'email': formDataObj.email,
-    //     'password': formDataObj.password,
-    //     'password_confirmation': formDataObj.password_confirmation,
-    //     'age': formDataObj.age,
-    //     'phone': formDataObj.phone,
-    // };
-    // const params = JSON.stringify(userInfo);
-    //  await axios.post(`http://localhost:3000/users`, userInfo);
-
     dispatch(createUser(
       formDataObj.name,
       formDataObj.email,
@@ -69,7 +58,7 @@ const User = () => {
         </Button>
         <Form.Group className="mb-3" controlId="formBasicSignUp">
           Already have an account?
-          <NavLink to="/login" className="link">Log in</NavLink>
+          <NavLink to="/" className="link">Log in</NavLink>
         </Form.Group>
       </Form>
     </div>

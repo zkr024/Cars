@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loginUser, getUser } from '../../redux/users/user';
-import checkData from './checkData';
-import { browserHistory } from 'react-router'
 
 function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-    // setTimeout(() => { checkData(setIsSubmitted); }, 2000);
+    setIsSubmitted(true);
     handleClick(true);
-    // navigate(`/home`);
-    browserHistory.push('/home')
   };
 
   const renderForm = (
@@ -49,8 +44,7 @@ function Login({ handleClick }) {
     <div className="user-container" data-testid="user-a">
       <div className="app">
         <div className="login-form">
-          <div className="title">Sign In</div>
-          {isSubmitted ? <div>User authenticated</div> : renderForm}
+          { isSubmitted ? <div> Welcome to Cars App! </div> : renderForm }
         </div>
       </div>
     </div>

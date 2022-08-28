@@ -4,10 +4,11 @@ import Access from './components/Access';
 import FrontPage from './components/frontPage/FrontPage';
 import Car from './components/details/Car';
 import AllCars from './components/car/AllCars';
-import Home from './components/Home';
+// import Home from './components/Home';
 import NavCars from './shared/navCars';
 import User from './components/users/User';
 import Login from './components/users/Login';
+import Logout from './components/users/Logout';
 
 function App() {
   const [objAuth, setAuthenticated] = useState({ authenticated: false });
@@ -18,10 +19,11 @@ function App() {
     <div className="app">
       <>
         <div className="frame">
-          <NavCars classType={(objAuth.authenticated) ? 'nav-visible' : 'nav-hidden'} />
+          <NavCars authenticated={objAuth.authenticated} />
           <Routes>
             <Route path="/" element={<Login handleClick={handleCallback} />} />
-            <Route path="/home" element={<Home />} />
+            {/* <Route path="/home" element={<Home />} /> */}
+            <Route path="/logout" element={<Logout handleClick={handleCallback} />} />
             <Route path="/user" element={<User />} />
             <Route path="/access" element={<Access />} />
             <Route path="/users/:userId" element={<FrontPage />} />
