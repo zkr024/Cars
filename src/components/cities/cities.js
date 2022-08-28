@@ -8,17 +8,12 @@ const Cities = () => {
   const countries = useSelector((state) => state.countries);
   const cities = useSelector((state) => state.cities);
 
-  const countryId = '1';
-  // const { userId, carId } = useParams();
-  // console.log('UserId '+ userId);
-  // console.log('carId is ' + carId);
   useEffect(() => {
-    dispatch(allCities(countryId));
     dispatch(allCountries());
   }, [dispatch]);
 
   const ChangeState = (e) => {
-
+    dispatch(allCities(e.target.value));
   };
 
   return (
@@ -34,29 +29,16 @@ const Cities = () => {
         <div className="form-group dropdn">
           <select className="form-control" name="country" value={countries.id} onChange={ChangeState}>
             <option>Select Country</option>
-            {countries.map((e, key) => (
-              <option key={key} value={e.CountryId}>
-                {e.name}
+            {countries.map((country) => (
+              <option key={country.id} value={country.id}>
+                {country.name}
               </option>
             ))}
           </select>
-
-          {/* <select
-            className="form-control slct"
-            name="state"
-            value={cities.id}
-            onChange={this.ChangeCity}
-          >
-            <label for="company">State Name</label>
-
-            {this.state.StateData.map((e, key) => {
-              return (
-                <option key={key} value={e.StateId}>
-                  {e.StateName}
-                </option>
-              );
-            })}
-          </select> */}
+          <select className="form-control slct" name="city" value={cities.id}>
+            <option>Select Cities</option>
+            {cities.map((city) => <option key={city.id} value={city.id}>{city.name}</option>)}
+          </select>
         </div>
       </div>
     </div>

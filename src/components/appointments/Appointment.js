@@ -9,8 +9,8 @@ import Cities from '../cities/cities';
 const Appointment = () => {
   const dispatch = useDispatch();
   const sellers = useSelector((state) => state.sellers);
-
   console.log(sellers);
+  // console.log(sellers);
   // const { userId, carId } = useParams();
   // console.log('UserId '+ userId);
   // console.log('carId is ' + carId);

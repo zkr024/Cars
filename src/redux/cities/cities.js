@@ -5,7 +5,6 @@ const CITIES = 'city/city/CITIES';
 const api = 'http://localhost:3000/countries/';
 
 const initialState = [];
-let Loading = false;
 
 export function getCitiesAPI(cities) {
   const APICityData = cities.map((city) => ({
@@ -20,12 +19,8 @@ export function getCitiesAPI(cities) {
 }
 
 export const allCities = (countryId) => async (dispatch) => {
-  if (Loading) return;
-  setTimeout(async () => {
-    const response = await axios.get(`${api}${countryId}/cities`);
-    dispatch(getCitiesAPI(response.data));
-  }, 1000);
-  Loading = true;
+  const response = await axios.get(`${api}${countryId}/cities`);
+  dispatch(getCitiesAPI(response.data));
 };
 
 const allCitiesReducer = (state = initialState, action) => {
