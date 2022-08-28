@@ -17,9 +17,13 @@ const Cities = () => {
     dispatch(allCountries());
   }, [dispatch]);
 
+  const ChangeState = (e) => {
+
+  };
+
   return (
     <div>
-      <h1>City Component</h1>
+      <h1>Country/City Component</h1>
       <div>
         <div className="row">
           <div className="col-sm-12 btn btn-info">
@@ -28,15 +32,10 @@ const Cities = () => {
         </div>
 
         <div className="form-group dropdn">
-          <select
-            className="form-control"
-            name="country"
-            value={countries}
-            onChange={cities}
-          >
+          <select className="form-control" name="country" value={countries.id} onChange={ChangeState}>
             <option>Select Country</option>
             {countries.map((e, key) => (
-              <option key={key} value={e.id}>
+              <option key={key} value={e.CountryId}>
                 {e.name}
               </option>
             ))}
