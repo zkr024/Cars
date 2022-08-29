@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import Access from './components/Access';
 import FrontPage from './components/frontPage/FrontPage';
 import Car from './components/details/Car';
 import AllCars from './components/car/AllCars';
+import DeleteCar from './components/car/deleteCars';
 // import Home from './components/Home';
 import NavCars from './shared/navCars';
 import User from './components/users/User';
@@ -25,9 +25,9 @@ function App() {
             {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/logout" element={<Logout handleClick={handleCallback} />} />
             <Route path="/user" element={<User />} />
-            <Route path="/access" element={<Access />} />
             <Route path="/users/:userId" element={<FrontPage />} />
             <Route path="/users/:userId/cars" element={<AllCars />} />
+            <Route path="/users/:userId/cars/delete" element={<DeleteCar />} />
             <Route path="/users/:userId/cars/:carId" element={<Car />} />
           </Routes>
         </div>

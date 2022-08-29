@@ -43,7 +43,6 @@ const CarCard = (props) => {
         </div>
         <div className="carData">
           <div>{ model }</div>
-          <div>{ userId }</div>
           <button
             className="addCar-btn"
             type="submit"
