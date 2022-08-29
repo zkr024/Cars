@@ -12,7 +12,7 @@ const Sellers = () => {
   }, [dispatch]);
   return (
     <div>
-      <select className="form-control slct" name="seller" value={sellers.id}>
+      <select className="form-control slct" name="seller_id" value={sellers.id}>
         <option>Select Sellers</option>
         {sellers.map((seller) => <option key={seller.id} value={seller.id}>{seller.name}</option>)}
       </select>

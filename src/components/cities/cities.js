@@ -27,7 +27,7 @@ const Cities = () => {
             </option>
           ))}
         </select>
-        <select className="form-control slct" name="city" value={cities.id}>
+        <select className="form-control slct" name="city_id" value={cities.id}>
           <option>Select Cities</option>
           {cities.map((city) => <option key={city.id} value={city.id}>{city.name}</option>)}
         </select>
