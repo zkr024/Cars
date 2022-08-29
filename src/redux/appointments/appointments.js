@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ApiServices from '../../dataAccess/apiServices';
 
 const APPOINTMENTS = 'appointment/appointment/APPOINTMENTS';
 const CREATE_APPOINTMENT = 'appointment/appointment/CREATE_APPOINTMENT';
@@ -29,16 +30,22 @@ export const postAppointment = (userId, carId, sellerId, cityId,
   dateFor, duration, branch) => async (dispatch) => {
   try {
     const appointmentInfo = {
-      userId,
-      carId,
-      sellerId,
-      cityId,
-      dateFor,
-      duration,
-      branch,
+      appointment: {
+        user_id: userId,
+        car_id: carId,
+        seller_id: sellerId,
+        city_id: cityId,
+        duration,
+        branch,
+        date_for: dateFor,
+      },
     };
+    // appointmentInfo.date_for = '2022-12-20T12:00:00.000Z';
+
     const appointment = JSON.stringify(appointmentInfo);
-    const response = await axios.post(`${api}${appointment.userId}/appointments`, appointmentInfo);
+    console.log(appointment);
+    // const response = await axios.post(`${api}${userId}/appointments`, appointment);
+    const response = await ApiServices.postAppointment(appointment);
     dispatch({
       type: CREATE_APPOINTMENT,
       payload: response.data,
@@ -63,10 +70,18 @@ const allAppointmentsReducer = (state = initialState, action) => {
     case APPOINTMENTS:
       return action.payload;
     case CREATE_APPOINTMENT:
-      return action.payload;
+      return action;
     default:
       return state;
   }
 };
 
 export default allAppointmentsReducer;
+
+// console.log(userId);
+// console.log(carId);
+// console.log(sellerId);
+// console.log(cityId);
+// console.log(dateFor);
+// console.log(duration);
+// console.log(branch);

@@ -7,20 +7,17 @@ import Form from 'react-bootstrap/Form';
 import Cities from '../cities/cities';
 import Sellers from '../sellers/sellers';
 
-// eslint-disable-next-line import/no-named-as-default
-import postAppointment from '../../redux/appointments/appointments';
+import { postAppointment } from '../../redux/appointments/appointments';
 
 const Appointment = () => {
   const { userId, carId } = useParams();
-  // console.log(`userId is  ${userId}`);
-  // console.log(`carId is  ${carId}`);
 
   const dispatch = useDispatch();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
-
+    // console.log(formDataObj);
     dispatch(postAppointment(
       userId,
       carId,
@@ -46,8 +43,8 @@ const Appointment = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicDuration">
-          <Form.Label>Duration</Form.Label>
-          <Form.Control name="duration" type="text" placeholder="Enter duration" autoComplete="off" />
+          <Form.Label>Duration (in minutes)</Form.Label>
+          <Form.Control name="duration" type="number" placeholder="Enter duration" autoComplete="off" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicBranch">
