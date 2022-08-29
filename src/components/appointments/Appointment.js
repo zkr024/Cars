@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 
 import Cities from '../cities/cities';
 import Sellers from '../sellers/sellers';
-// import Date from './Date';
 
 const Appointment = () => {
 // const { userId, carId } = useParams();
