@@ -1,5 +1,4 @@
 import axios from 'axios';
-import ApiServices from '../../dataAccess/apiServices';
 
 const APPOINTMENTS = 'appointment/appointment/APPOINTMENTS';
 const CREATE_APPOINTMENT = 'appointment/appointment/CREATE_APPOINTMENT';
@@ -28,29 +27,29 @@ export function getAppointmentAPI(appointments) {
 
 export const postAppointment = (userId, carId, sellerId, cityId,
   dateFor, duration, branch) => async (dispatch) => {
+  const appointmentUrl = `${api}${userId}/appointments`;
   try {
     const appointmentInfo = {
-      appointment: {
-        user_id: userId,
-        car_id: carId,
-        seller_id: sellerId,
-        city_id: cityId,
-        duration,
-        branch,
-        date_for: dateFor,
-      },
+      user_id: userId,
+      car_id: carId,
+      seller_id: sellerId,
+      city_id: cityId,
+      duration,
+      branch,
+      date_for: dateFor,
     };
-    // appointmentInfo.date_for = '2022-12-20T12:00:00.000Z';
-
-    const appointment = JSON.stringify(appointmentInfo);
-    console.log(appointment);
-    // const response = await axios.post(`${api}${userId}/appointments`, appointment);
-    const response = await ApiServices.postAppointment(appointment);
+    const response = await fetch(appointmentUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(appointmentInfo),
+    });
     dispatch({
       type: CREATE_APPOINTMENT,
-      payload: response.data,
+      payload: await response.json(),
     });
-    return Promise.resolve(response.data);
+    return Promise.resolve(response);
   } catch (error) {
     return Promise.reject(error);
   }
@@ -70,18 +69,10 @@ const allAppointmentsReducer = (state = initialState, action) => {
     case APPOINTMENTS:
       return action.payload;
     case CREATE_APPOINTMENT:
-      return action;
+      return action.payload;
     default:
       return state;
   }
 };
 
 export default allAppointmentsReducer;
-
-// console.log(userId);
-// console.log(carId);
-// console.log(sellerId);
-// console.log(cityId);
-// console.log(dateFor);
-// console.log(duration);
-// console.log(branch);
