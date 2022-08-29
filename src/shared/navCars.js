@@ -17,9 +17,9 @@ const NavCars = (props) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="flex-column">
             {/* <Nav.Link as={Link} to="/">Home</Nav.Link> */}
-            <Nav.Link as={Link} to={`/users/${user}`}>Frontpage</Nav.Link>
-            <Nav.Link as={Link} to="/access">Access</Nav.Link>
+            <Nav.Link as={Link} to={`/users/${user}`}>My list</Nav.Link>
             <Nav.Link as={Link} to={`/users/${user}/cars`}>Add Car</Nav.Link>
+            <Nav.Link as={Link} to={`/users/${user}/cars/delete`}>Delete Car</Nav.Link>
             {(authenticated)
               ? <Nav.Link as={Link} to="/logout">Log Out</Nav.Link>
               : <Nav.Link as={Link} to="/">Log In</Nav.Link> }
