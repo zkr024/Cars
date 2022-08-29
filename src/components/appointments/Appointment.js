@@ -11,13 +11,11 @@ import { postAppointment } from '../../redux/appointments/appointments';
 
 const Appointment = () => {
   const { userId, carId } = useParams();
-
   const dispatch = useDispatch();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
-    // console.log(formDataObj);
     dispatch(postAppointment(
       userId,
       carId,
@@ -51,10 +49,6 @@ const Appointment = () => {
           <Form.Label>Enter Branch</Form.Label>
           <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" />
         </Form.Group>
-
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Default Locat Branch" />
-        </Form.Group> */}
 
         <Button variant="primary" type="submit">
           Submit
