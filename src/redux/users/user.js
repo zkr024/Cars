@@ -45,6 +45,7 @@ export const getUser = (email) => async (dispatch) => {
     const res = await ApiServices.getUserByEmail(params);
     if (res.data) {
       localStorage.setItem('user_id', JSON.stringify(res.data.id));
+      localStorage.setItem('user_name', JSON.stringify(res.data.name));
     }
     dispatch({
       type: GET_USER,

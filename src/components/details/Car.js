@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { getDetails } from '../../redux/cars/details';
+import '../../assets/details.css';
 
 const Car = () => {
   const { carId, userId } = useParams();
@@ -16,6 +17,7 @@ const Car = () => {
 
   return (
     <div className="user-container" data-testid="user-a">
+      <h1>Carl Details</h1>
       { details.length === 0
         ? (
           <img
@@ -25,12 +27,35 @@ const Car = () => {
           />
         )
         : (
-          <div className="ImgHolder">
-            <img
-              className="detailsImage"
-              src={require(`../../assets/images/${value.photo}`)}
-              alt="cars from png site"
-            />
+          <div className="details-container">
+            <div className="ImgHolder">
+              <img
+                className="detailsImage"
+                src={require(`../../assets/images/${value.photo}`)}
+                alt="cars from png site"
+              />
+            </div>
+            <div className="car-details">
+              <h3>{value.model}</h3>
+              <h4>{value.brand}</h4>
+              <h5>
+                Price $
+                {value.price}
+                K
+              </h5>
+              <h5>
+                color:
+                {' '}
+                {value.color}
+              </h5>
+              <p>{value.description}</p>
+              <Link
+                to="/"
+                className="appointment-btn"
+              >
+                Appointment
+              </Link>
+            </div>
           </div>
         )}
       <Link to={`/users/${userId}/cars/${carId}/appointment`}>Appointment</Link>

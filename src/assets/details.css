@@ -1,0 +1,44 @@
+.details-container {
+  margin-top: 150px;
+  display: flex;
+}
+
+.ImgHolder {
+  width: 50%;
+}
+
+.detailsImage {
+  width: 100%;
+}
+
+.car-details {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 50px 50px;
+}
+
+.car-details p {
+  text-align: justify;
+}
+
+.appointment-btn {
+  text-decoration: none;
+  text-align: center;
+  background-color: #212529;
+  padding: 10px;
+  color: #fff;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 50px;
+  width: 60%;
+}
+
+.appointment-btn:hover {
+  background-color: #fff;
+  color: #212529;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+}

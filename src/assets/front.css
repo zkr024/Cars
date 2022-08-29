@@ -1,14 +1,60 @@
+.list-container {
+  margin-top: 70px;
+}
+
 h1 {
   text-align: center;
 }
 
+.list-data {
+  padding: 100px;
+}
+
+.car_gif {
+  margin: 0 auto;
+}
+
 .slide {
-  margin-top: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slide::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  width: 60px;
+  background-image: linear-gradient(90deg, #fff, transparent);
+}
+
+.slide::after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  width: 60px;
+  background-image: linear-gradient(-90deg, #fff, transparent);
+}
+
+.cardHolder {
+  width: 600px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .imgHolder {
-  width: 500px;
-  margin: 0 auto;
+  height: 70%;
+  display: flex;
 }
 
 .carousel-inner {

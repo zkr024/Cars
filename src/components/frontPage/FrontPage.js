@@ -10,54 +10,56 @@ import '../../assets/front.css';
 
 const FrontPage = () => {
   const { userId } = useParams();
-
   const cars = useSelector((state) => state.list);
   const dispatch = useDispatch();
-
   useEffect(() => { dispatch(loadInfo(userId)); }, []);
-
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
   return (
     <div className="user-container" data-testid="user-a">
-      <h1>My Car list</h1>
-      <Carousel
-        variant="dark"
-        activeIndex={index}
-        onSelect={handleSelect}
-        className="slide"
-      >
-        { cars.length === 0
-          ? (
-            <img
-              src={require('../../assets/gift/car.gif')}
-              alt="car gift"
-              className="car_gif"
-            />
-          )
-          : (
-            cars.data.map((value) => (
-              <Carousel.Item key={value.car.id}>
-                <Link to={`/users/${userId}/cars/${value.car.id}`}>
-                  <div className="imgHolder">
-                    <img
-                      className="d-block w-100"
-                      src={require(`../../assets/images/${value.car.photo}`)}
-                      alt="cars from png site"
-                    />
-                  </div>
-                </Link>
-                <Carousel.Caption>
-                  <h3 className="model">{ value.car.model }</h3>
-                </Carousel.Caption>
-              </Carousel.Item>
-            ))
-          )}
-      </Carousel>
+      <div className="list-container">
+        <h1>My Car list</h1>
+        <div className="list-data">
+          <Carousel
+            variant="dark"
+            activeIndex={index}
+            onSelect={handleSelect}
+            className="slide"
+          >
+            { cars.length === 0
+              ? (
+                <img
+                  src={require('../../assets/gift/car.gif')}
+                  alt="car gift"
+                  className="car_gif"
+                />
+              )
+              : (
+                cars.data.map((value) => (
+                  <Carousel.Item key={value.car.id} className="car">
+                    <Link to={`/users/${userId}/cars/${value.car.id}`}>
+                      <div className="cardHolder">
+                        <div className="imgHolder">
+                          <img
+                            className="d-block w-100"
+                            src={require(`../../assets/images/${value.car.photo}`)}
+                            alt="cars from png site"
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                    <Carousel.Caption>
+                      <h3 className="model">{ value.car.model }</h3>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                ))
+              )}
+          </Carousel>
+        </div>
+      </div>
     </div>
   );
 };

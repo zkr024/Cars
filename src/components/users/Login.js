@@ -2,22 +2,20 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { loginUser, getUser } from '../../redux/users/user';
-import checkData from './checkData';
 
-function Login() {
+function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
-
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-
-    setTimeout(() => { checkData(setIsSubmitted); }, 500);
+    setIsSubmitted(true);
+    handleClick(true);
   };
 
   const renderForm = (
@@ -46,12 +44,15 @@ function Login() {
     <div className="user-container" data-testid="user-a">
       <div className="app">
         <div className="login-form">
-          <div className="title">Sign In</div>
-          {isSubmitted ? <div>User authenticated</div> : renderForm}
+          { isSubmitted ? <div> Welcome to Cars App! </div> : renderForm }
         </div>
       </div>
     </div>
   );
 }
+
+Login.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default Login;
