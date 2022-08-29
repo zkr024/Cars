@@ -1,22 +1,29 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import Access from './components/Access';
 import FrontPage from './components/frontPage/FrontPage';
 import Car from './components/details/Car';
 import AllCars from './components/car/AllCars';
-import Home from './components/Home';
+// import Home from './components/Home';
 import NavCars from './shared/navCars';
 import User from './components/users/User';
 import Login from './components/users/Login';
+import Logout from './components/users/Logout';
 
 function App() {
+  const [objAuth, setAuthenticated] = useState({ authenticated: false });
+  const handleCallback = (authValue) => {
+    setAuthenticated({ authenticated: authValue });
+  };
   return (
     <div className="app">
       <>
         <div className="frame">
-          <NavCars />
+          <NavCars authenticated={objAuth.authenticated} />
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Login handleClick={handleCallback} />} />
+            {/* <Route path="/home" element={<Home />} /> */}
+            <Route path="/logout" element={<Logout handleClick={handleCallback} />} />
             <Route path="/user" element={<User />} />
             <Route path="/access" element={<Access />} />
             <Route path="/users/:userId" element={<FrontPage />} />

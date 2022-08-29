@@ -8,4 +8,15 @@ const checkData = (setIsSubmitted) => {
   }
 };
 
-export default checkData;
+const removeToken = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user_id');
+  localStorage.removeItem('user_name');
+};
+
+const getUserName = () => {
+  const userName = localStorage.getItem('user_name');
+  return userName;
+};
+
+export default { checkData, removeToken, getUserName };
