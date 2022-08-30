@@ -17,7 +17,7 @@ function Login({ handleClick }) {
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-    setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 500);
+    setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 1000);
   };
 
   const renderForm = (
