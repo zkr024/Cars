@@ -1,7 +1,3 @@
-.page-position {
-  margin-left: 15%;
-}
-
 h1 {
   text-align: center;
 }
@@ -19,6 +15,7 @@ h1 {
   width: 80%;
   margin: 0 auto;
   position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0 30px 60px -30px, rgba(10, 37, 64, 0.35) 0 -2px 6px 0 inset;
 }
 
 .slide::before {
@@ -80,8 +77,13 @@ h1 {
   }
 }
 
-@media only screen and (max-width: 1024px) {
-  .page-position {
-    margin-left: 0;
+@media only screen and (max-width: 560px) {
+  .cardHolder {
+    width: 300px;
+  }
+
+  .slide::before,
+  .slide::after {
+    background-image: none;
   }
 }

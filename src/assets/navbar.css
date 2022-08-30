@@ -4,7 +4,7 @@ header {
   padding: 0 0 0 2rem;
   height: 100vh;
   background-color: #fff;
-  border-right: 1px solid #e2e3e5;
+  box-shadow: rgba(151, 191, 17, 0.4) 0 2px 4px, rgba(151, 191, 17, 0.3) 0 7px 13px -3px, rgba(151, 191, 17, 0.2) 0 -3px 0 inset;
 }
 
 .logoImageHolder {
@@ -22,7 +22,6 @@ header {
   border: none;
   outline: none;
   align-self: flex-start;
-  padding: 10px;
   width: 100%;
   text-align: start;
   background-color: #e2e3e5;
@@ -41,14 +40,42 @@ header {
   color: #000;
   font-size: 1.3em;
   font-weight: bold;
-  margin-left: 10px;
+  padding: 15px;
+  background-color: #ddd;
+  display: inline-block;
+  width: 100%;
+  position: relative;
 }
 
-.nav-display:hover,
+.nav-links::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  background-color: transparent;
+}
+
 .nav-links:hover {
+  position: relative;
   background-color: #97bf11;
   width: 100%;
   color: #fff;
+}
+
+.nav-links:hover::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  border-left: 20px solid #97bf11;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
 }
 
 .nav-btn {
