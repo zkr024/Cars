@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from '../cars/accessToken';
 
 const APPOINTMENTS = 'appointment/appointment/APPOINTMENTS';
 const CREATE_APPOINTMENT = 'appointment/appointment/CREATE_APPOINTMENT';
@@ -42,6 +43,7 @@ export const postAppointment = (userId, carId, sellerId, cityId,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken()}`,
       },
       body: JSON.stringify(appointmentInfo),
     });
@@ -58,7 +60,7 @@ export const postAppointment = (userId, carId, sellerId, cityId,
 export const allAppointments = (userId) => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
-    const response = await axios.get(`${api}${userId}/appointments`);
+    const response = await axios.get(`${api}${userId}/appointments`, { headers: { Authorization: accessToken() } });
     dispatch(getAppointmentAPI(response.data));
   }, 1000);
   Loading = true;
