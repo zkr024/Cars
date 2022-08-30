@@ -13,7 +13,7 @@ const AppointmentsList = () => {
   }, [dispatch]);
 
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="page-position">
       <h1> Appointments List</h1>
       <div>
         { appointments.length === 0

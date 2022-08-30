@@ -29,7 +29,7 @@ const Appointment = () => {
   // eslint-disable-next-line implicit-arrow-linebreak
   const toDay = new Date().toISOString().substring(0, 10);
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="page-position">
       <h1>Appointment Component</h1>
       <Form onSubmit={handleSubmit}>
         <Cities />

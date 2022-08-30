@@ -1,7 +1,3 @@
-.page-position {
-  margin-left: 15%;
-}
-
 .details-container {
   margin-top: 150px;
   display: flex;
@@ -62,11 +58,5 @@
 
   .appointment-btn {
     position: relative;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-  .page-position {
-    margin-left: 0;
   }
 }

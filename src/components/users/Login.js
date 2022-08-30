@@ -43,7 +43,7 @@ function Login({ handleClick }) {
   );
 
   return (
-    <div className="user-container page-position" data-testid="user-a">
+    <div className="login-form-container">
       <div className="app">
         <div className="login-form">
           { isSubmitted
