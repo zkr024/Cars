@@ -26,6 +26,9 @@ const Appointment = () => {
       formDataObj.branch,
     ));
   };
+  const reDirect = () => {
+    window.location.href = `/users/${userId}/appointments`;
+  };
   // eslint-disable-next-line implicit-arrow-linebreak
   const toDay = new Date().toISOString().substring(0, 10);
   return (
@@ -50,7 +53,7 @@ const Appointment = () => {
           <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={reDirect}>
           Submit
         </Button>
       </Form>

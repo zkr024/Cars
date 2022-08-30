@@ -12,6 +12,23 @@ const AppointmentsList = () => {
     dispatch(allAppointments(userId));
   }, [dispatch]);
 
+  const appointmentsList = (data) => {
+    const list = (
+      <AppointmentsListItem
+        key={data.id}
+        id={data.id}
+        userName={data.user.name}
+        carModel={data.car.model}
+        sellerName={data.seller.name}
+        cityName={data.city.name}
+        duration={data.duration}
+        branch={data.branch}
+        dateFor={data.date_for}
+      />
+    );
+    return list;
+  };
+
   return (
     <div className="page-position">
       <h1> Appointments List</h1>
@@ -21,14 +38,7 @@ const AppointmentsList = () => {
             <h2>Loading appointments list...</h2>
           )
           : (
-            <ul>
-              {appointments.map((appointment) => (
-                <AppointmentsListItem
-                  key={appointment.id}
-                  appointments={appointments}
-                />
-              ))}
-            </ul>
+            <ul>{appointments.map((value) => appointmentsList(value))}</ul>
           )}
       </div>
     </div>
