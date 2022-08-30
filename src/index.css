@@ -44,10 +44,8 @@ code {
 
 .nav-visible {
   display: block;
-  width: 15%;
 }
 
 .nav-hidden {
   display: none;
-  width: 15%;
 }
