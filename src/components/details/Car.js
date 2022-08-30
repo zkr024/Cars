@@ -50,7 +50,7 @@ const Car = () => {
               </h5>
               <p>{value.description}</p>
               <Link
-                to="/"
+                to={`/users/${userId}/cars/${carId}/appointment`}
                 className="appointment-btn"
               >
                 Appointment
@@ -58,7 +58,6 @@ const Car = () => {
             </div>
           </div>
         )}
-      <Link to={`/users/${userId}/cars/${carId}/appointment`}>Appointment</Link>
     </div>
   );
 };
