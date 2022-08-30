@@ -8,7 +8,6 @@ const AppointmentsList = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
   const appointments = useSelector((state) => state.appointments);
-  console.log(appointments);
   useEffect(() => {
     dispatch(allAppointments(userId));
   }, [dispatch]);
@@ -18,10 +17,10 @@ const AppointmentsList = () => {
       <AppointmentsListItem
         key={data.id}
         id={data.id}
-        userId={data.user_id}
-        carId={data.car_id}
-        sellerId={data.seller_id}
-        cityId={data.city_id}
+        userName={data.user.name}
+        carModel={data.car.model}
+        sellerName={data.seller.name}
+        cityName={data.city.name}
         duration={data.duration}
         branch={data.branch}
         dateFor={data.date_for}

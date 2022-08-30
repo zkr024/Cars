@@ -2,15 +2,15 @@ import PropTypes from 'prop-types';
 
 function AppointmentsListItem(props) {
   const {
-    id, userId, carId, sellerId, cityId, duration, branch, dateFor,
+    id, userName, carModel, sellerName, cityName, duration, branch, dateFor,
   } = props;
 
   return (
     <li key={id}>
-      {userId}
-      {carId}
-      {sellerId}
-      {cityId}
+      {userName}
+      {carModel}
+      {sellerName}
+      {cityName}
       {duration}
       {branch}
       {dateFor}
@@ -22,10 +22,10 @@ export default AppointmentsListItem;
 
 AppointmentsListItem.propTypes = {
   id: PropTypes.number.isRequired,
-  userId: PropTypes.number.isRequired,
-  carId: PropTypes.number.isRequired,
-  sellerId: PropTypes.number.isRequired,
-  cityId: PropTypes.number.isRequired,
+  userName: PropTypes.string.isRequired,
+  carModel: PropTypes.string.isRequired,
+  sellerName: PropTypes.string.isRequired,
+  cityName: PropTypes.string.isRequired,
   duration: PropTypes.number.isRequired,
   branch: PropTypes.string.isRequired,
   dateFor: PropTypes.string.isRequired,
