@@ -41,11 +41,11 @@ const NavCars = (props) => {
                 Delete Car
               </NavLink>
             </button>
-            
+
             <button onClick={showNavBar} type="button" className="nav-display">
-               <Nav.Link as={Link} to={`/users/${user}/appointments`} className="nav-links">
+              <NavLink to={`/users/${user}/appointments`} className="nav-links">
                 Appointments
-                </Nav.Link>
+              </NavLink>
             </button>
 
             {(authenticated)
