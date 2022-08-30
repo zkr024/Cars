@@ -15,7 +15,7 @@ const DeleteCar = () => {
   useEffect(() => { dispatch(loadInfo(userId)); }, []);
 
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="page-position">
       <div className="list-container">
         <h1>Remove cars from your list</h1>
         <div className="cards_container">
