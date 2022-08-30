@@ -45,3 +45,16 @@ code {
 .nav-hidden {
   display: none;
 }
+
+.btn-cars {
+  background-color: #97bf11;
+  color: white;
+  border-radius: 20px;
+}
+
+.btn-cars:hover {
+  background-color: #ffb400;
+  color: white;
+  border: 1px solid #ffb400;
+}
+

@@ -33,7 +33,7 @@ function Login({ handleClick }) {
         <Form.Control name="password" type="password" placeholder="Password" />
         {/* {renderErrorMessage("password")} */}
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="cars" type="submit">
         Submit
       </Button>
       <Form.Group className="mb-3" controlId="formBasicSignUp">
