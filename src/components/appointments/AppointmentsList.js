@@ -8,6 +8,7 @@ const AppointmentsList = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
   const appointments = useSelector((state) => state.appointments);
+  console.log(appointments);
   useEffect(() => {
     dispatch(allAppointments(userId));
   }, [dispatch]);

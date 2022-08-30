@@ -10,19 +10,9 @@ const initialState = [];
 let Loading = false;
 
 export function getAppointmentAPI(appointments) {
-  const APIAppointmentData = appointments.map((appointment) => ({
-    id: appointment.id,
-    user_id: appointment.user_id,
-    car_id: appointment.car_id,
-    seller_id: appointment.seller_id,
-    city_id: appointment.city_id,
-    duration: appointment.duration,
-    branch: appointment.branch,
-    date_for: appointment.date_for,
-  }));
   return {
     type: APPOINTMENTS,
-    payload: APIAppointmentData,
+    payload: appointments,
   };
 }
 
