@@ -9,6 +9,8 @@ import NavCars from './shared/navCars';
 import User from './components/users/User';
 import Login from './components/users/Login';
 import Appointment from './components/appointments/Appointment';
+import AppointmentsList from './components/appointments/AppointmentsList';
+
 import Logout from './components/users/Logout';
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
             <Route path="/users/:userId/cars" element={<AllCars />} />
             <Route path="/users/:userId/cars/delete" element={<DeleteCar />} />
             <Route path="/users/:userId/cars/:carId" element={<Car />} />
+            <Route path="/users/:userId/appointments" element={<AppointmentsList />} />
             <Route path="/users/:userId/cars/:carId/appointment" element={<Appointment />} />
           </Routes>
         </div>

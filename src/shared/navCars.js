@@ -20,6 +20,7 @@ const NavCars = (props) => {
             <Nav.Link as={Link} to={`/users/${user}`}>My list</Nav.Link>
             <Nav.Link as={Link} to={`/users/${user}/cars`}>Add Car</Nav.Link>
             <Nav.Link as={Link} to={`/users/${user}/cars/delete`}>Delete Car</Nav.Link>
+            <Nav.Link as={Link} to={`/users/${user}/appointments`}>Appointments</Nav.Link>
             {(authenticated)
               ? <Nav.Link as={Link} to="/logout">Log Out</Nav.Link>
               : <Nav.Link as={Link} to="/">Log In</Nav.Link> }

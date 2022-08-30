@@ -58,7 +58,7 @@ export const postAppointment = (userId, carId, sellerId, cityId,
 export const allAppointments = (userId) => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
-    const response = await axios.get(`${api}${userId}`);
+    const response = await axios.get(`${api}${userId}/appointments`);
     dispatch(getAppointmentAPI(response.data));
   }, 1000);
   Loading = true;

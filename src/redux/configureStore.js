@@ -8,7 +8,7 @@ import middleware from './middleware';
 import allCitiesReducer from './cities/cities';
 import allCountriesReducer from './countries/countries';
 import allSellersReducer from './sellers/sellers';
-import allAppointmentsReduce from './appointments/appointments';
+import allAppointmentsReducer from './appointments/appointments';
 
 const rootReducer = combineReducers({
   users,
@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   cities: allCitiesReducer,
   countries: allCountriesReducer,
   sellers: allSellersReducer,
-  appointments: allAppointmentsReduce,
+  appointments: allAppointmentsReducer,
 });
 const store = configureStore({
   reducer: rootReducer,
