@@ -19,7 +19,7 @@ const FrontPage = () => {
   };
 
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="page-position">
       <div className="list-container">
         <h1>My Car list</h1>
         <div className="list-data">

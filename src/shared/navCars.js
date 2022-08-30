@@ -1,32 +1,71 @@
-import {
-  Container, Nav, Navbar,
-} from 'react-bootstrap';
-import {
-  Link,
-} from 'react-router-dom';
+/* eslint-disable global-require */
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useRef } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import '../assets/navbar.css';
 
-const user = localStorage.getItem('user_id');
 const NavCars = (props) => {
   const { authenticated } = props;
+  const user = localStorage.getItem('user_id');
+  const navRef = useRef();
+
+  const showNavBar = () => {
+    navRef.current.classList.toggle('responsive_nav');
+  };
+
   return (
-    <Navbar className={(authenticated) ? 'nav-visible' : 'nav-hidden'} collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Cars Logo</Navbar.Brand>
-      <Container className="nav-container">
-        <Navbar.Toggle className="ml-auto" aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="flex-column">
-            {/* <Nav.Link as={Link} to="/">Home</Nav.Link> */}
-            <Nav.Link as={Link} to={`/users/${user}`}>My list</Nav.Link>
-            <Nav.Link as={Link} to={`/users/${user}/cars`}>Add Car</Nav.Link>
-            <Nav.Link as={Link} to={`/users/${user}/cars/delete`}>Delete Car</Nav.Link>
+    <header className={(authenticated) ? 'nav-visible' : 'nav-hidden'}>
+      <div className="top-container">
+        <div className="logoImageHolder">
+          <img
+            src={require('../assets/images/logo/logo.png')}
+            alt="logo from png site"
+            className="logoImage"
+          />
+        </div>
+        <nav ref={navRef}>
+          <div className="nav-links-container">
+            <button onClick={showNavBar} type="button" className="nav-display">
+              <NavLink to={`/users/${user}`} className="nav-links">
+                My list
+              </NavLink>
+            </button>
+            <button onClick={showNavBar} type="button" className="nav-display">
+              <NavLink to={`/users/${user}/cars`} className="nav-links">
+                Add Car
+              </NavLink>
+            </button>
+            <button onClick={showNavBar} type="button" className="nav-display">
+              <NavLink to={`/users/${user}/cars/delete`} className="nav-links">
+                Delete Car
+              </NavLink>
+            </button>
             {(authenticated)
-              ? <Nav.Link as={Link} to="/logout">Log Out</Nav.Link>
-              : <Nav.Link as={Link} to="/">Log In</Nav.Link> }
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+              ? (
+                <button type="button" className="nav-display">
+                  <NavLink to="/logout" className="nav-links">Log Out</NavLink>
+                </button>
+              )
+              : <NavLink to="/">Log In</NavLink> }
+            <button
+              type="button"
+              onClick={showNavBar}
+              className="nav-btn nav-close-btn"
+            >
+              <FaTimes />
+            </button>
+          </div>
+        </nav>
+        <button
+          type="button"
+          onClick={showNavBar}
+          className="nav-btn"
+        >
+          <FaBars />
+        </button>
+      </div>
+    </header>
   );
 };
 

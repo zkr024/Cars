@@ -1,9 +1,12 @@
+/* eslint-disable global-require */
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loginUser, getUser } from '../../redux/users/user';
+import checkData from './checkData';
+import '../../assets/access.css';
 
 function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,8 +17,7 @@ function Login({ handleClick }) {
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(loginUser(formDataObj.email, formDataObj.password));
     dispatch(getUser(formDataObj.email));
-    setIsSubmitted(true);
-    handleClick(true);
+    setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 500);
   };
 
   const renderForm = (
@@ -41,10 +43,21 @@ function Login({ handleClick }) {
   );
 
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="user-container page-position" data-testid="user-a">
       <div className="app">
         <div className="login-form">
-          { isSubmitted ? <div> Welcome to Cars App! </div> : renderForm }
+          { isSubmitted
+            ? (
+              <>
+                <div> Welcome to Cars App! </div>
+                <img
+                  src={require('../../assets/gift/car.gif')}
+                  alt="car gift"
+                  className="car_gif intro_gif"
+                />
+              </>
+            )
+            : renderForm }
         </div>
       </div>
     </div>

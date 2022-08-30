@@ -16,7 +16,7 @@ const Car = () => {
   useEffect(() => { dispatch(getDetails(userId, carId)); }, []);
 
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="page-position">
       <h1>Carl Details</h1>
       { details.length === 0
         ? (

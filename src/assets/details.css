@@ -1,3 +1,7 @@
+.page-position {
+  margin-left: 15%;
+}
+
 .details-container {
   margin-top: 150px;
   display: flex;
@@ -26,7 +30,7 @@
 .appointment-btn {
   text-decoration: none;
   text-align: center;
-  background-color: #212529;
+  background-color: #97bf11;
   padding: 10px;
   color: #fff;
   margin-top: 30px;
@@ -39,6 +43,30 @@
 
 .appointment-btn:hover {
   background-color: #fff;
-  color: #212529;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+  color: #97bf11;
+  font-weight: bold;
+  box-shadow: rgba(151, 191, 17, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+}
+
+@media only screen and (max-width: 1400px) {
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .car-details {
+    width: 100%;
+    align-items: center;
+  }
+
+  .appointment-btn {
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .page-position {
+    margin-left: 0;
+  }
 }

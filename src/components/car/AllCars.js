@@ -28,7 +28,7 @@ const AllCars = () => {
   useEffect(() => { dispatch(allCars(userId)); }, []);
 
   return (
-    <div className="user-container" data-testid="user-a">
+    <div className="page-position">
       <h1>Car List</h1>
       <div className="cards_container">
         { cars.length === 0
