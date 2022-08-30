@@ -10,7 +10,8 @@
 
 - React JS 
 - Redux
-- JSX
+- HTML 
+- CSS
 - Bootstrap
 
 ## Back-End development set up
