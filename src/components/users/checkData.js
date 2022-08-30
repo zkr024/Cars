@@ -1,10 +1,12 @@
-const checkData = (setIsSubmitted) => {
-  if (localStorage.getItem('token') !== null) {
+const checkData = (setIsSubmitted, handleClick) => {
+  if (localStorage.getItem('user_id') !== null) {
     setIsSubmitted(true);
+    handleClick(true);
     const user = localStorage.getItem('user_id');
     window.location.href = `/users/${user}`;
   } else {
     setIsSubmitted(false);
+    handleClick(false);
   }
 };
 

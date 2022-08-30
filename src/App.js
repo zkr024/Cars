@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FrontPage from './components/frontPage/FrontPage';
 import Car from './components/details/Car';
 import AllCars from './components/car/AllCars';
@@ -9,16 +9,28 @@ import NavCars from './shared/navCars';
 import User from './components/users/User';
 import Login from './components/users/Login';
 import Logout from './components/users/Logout';
+import './assets/style.css';
 
 function App() {
   const [objAuth, setAuthenticated] = useState({ authenticated: false });
   const handleCallback = (authValue) => {
     setAuthenticated({ authenticated: authValue });
   };
+
+  const user = localStorage.getItem('user_id');
+
+  useEffect(() => {
+    if (user === null) {
+      setAuthenticated({ authenticated: false });
+    } else {
+      setAuthenticated({ authenticated: true });
+    }
+  }, []);
+
   return (
     <div className="app">
       <>
-        <div className="frame">
+        <div className="routes">
           <NavCars authenticated={objAuth.authenticated} />
           <Routes>
             <Route path="/" element={<Login handleClick={handleCallback} />} />

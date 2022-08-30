@@ -1,3 +1,8 @@
+.page-position {
+  margin-left: 15%;
+  padding-top: 100px;
+}
+
 .cards_container {
   display: flex;
   align-items: center;
@@ -39,7 +44,7 @@
 .addCar-btn,
 .btn-delete {
   border: none;
-  background-color: #212529;
+  background-color: #97bf11;
   color: #fff;
   padding: 10px;
   margin: 5px;
@@ -52,6 +57,15 @@
 .addCar-btn:hover,
 .btn-delete:hover {
   background-color: #fff;
-  color: #212529;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+  color: #97bf11;
+  font-weight: bold;
+  box-shadow: rgba(151, 191, 17, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
 }
+
+@media only screen and (max-width: 1024px) {
+  .page-position {
+    margin-left: 0;
+    padding-top: 50px;
+  }
+}
+

@@ -1,5 +1,5 @@
-.list-container {
-  margin-top: 70px;
+.page-position {
+  margin-left: 15%;
 }
 
 h1 {
@@ -26,7 +26,7 @@ h1 {
   content: '';
   left: 0;
   top: 0;
-  z-index: 99;
+  z-index: 1;
   height: 100%;
   width: 60px;
   background-image: linear-gradient(90deg, #fff, transparent);
@@ -37,7 +37,7 @@ h1 {
   content: '';
   right: 0;
   top: 0;
-  z-index: 99;
+  z-index: 1;
   height: 100%;
   width: 60px;
   background-image: linear-gradient(-90deg, #fff, transparent);
@@ -61,3 +61,28 @@ h1 {
   height: 500px;
   display: flex;
 }
+
+@media only screen and (max-width: 1195px) {
+  .list-data {
+    padding: 0;
+  }
+
+  .slide {
+    width: 100%;
+  }
+
+  .cardHolder {
+    width: 400px;
+  }
+
+  .imgHolder {
+    height: 50%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .page-position {
+    margin-left: 0;
+  }
+}
+
