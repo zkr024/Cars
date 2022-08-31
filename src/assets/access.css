@@ -13,7 +13,7 @@
   background: linear-gradient(0deg, rgba(151, 191, 1, 0.2), rgba(151, 191, 1, 0.5)), url("./images/wallpaper/wallpaper.jpg");
   background-size: cover;
   background-position: top center;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .login-form {

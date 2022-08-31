@@ -79,7 +79,7 @@ const NavCars = (props) => {
         <button
           type="button"
           onClick={showNavBar}
-          className="nav-btn"
+          className="nav-btn menu-btn"
         >
           <FaBars />
         </button>

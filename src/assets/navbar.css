@@ -104,6 +104,18 @@ header {
     opacity: 1;
   }
 
+  .menu-btn,
+  .nav-close-btn {
+    font-size: 45px;
+    margin-right: 20px;
+  }
+
+  .nav-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   header {
     position: relative;
     border-bottom: 1px solid #000;

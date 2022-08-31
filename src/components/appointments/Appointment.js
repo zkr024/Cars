@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
 import Cities from '../cities/cities';
 import Sellers from '../sellers/sellers';
-
 import { postAppointment } from '../../redux/appointments/appointments';
+import '../../assets/appointmentForm.css';
 
 const Appointment = () => {
   const { userId, carId } = useParams();
@@ -34,29 +33,31 @@ const Appointment = () => {
   return (
     <div className="page-position">
       <h1>Appointment Component</h1>
-      <Form onSubmit={handleSubmit}>
-        <Cities />
-        <Sellers />
+      <div className="form-appointment">
+        <Form onSubmit={handleSubmit}>
+          <Cities />
+          <Sellers />
 
-        <Form.Group className="mb-3" controlId="formBasicDate">
-          <Form.Label>Select Date</Form.Label>
-          <Form.Control name="date_for" type="date" defaultValue={toDay} />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicDate">
+            <Form.Label>Select Date</Form.Label>
+            <Form.Control name="date_for" type="date" defaultValue={toDay} />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicDuration">
-          <Form.Label>Duration (in minutes)</Form.Label>
-          <Form.Control name="duration" type="number" placeholder="Enter duration" autoComplete="off" />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicDuration">
+            <Form.Label>Duration (in minutes)</Form.Label>
+            <Form.Control name="duration" type="number" placeholder="Enter duration" autoComplete="off" />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicBranch">
-          <Form.Label>Enter Branch</Form.Label>
-          <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicBranch">
+            <Form.Label>Enter Branch</Form.Label>
+            <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" />
+          </Form.Group>
 
-        <Button variant="cars" type="submit" onClick={reDirect}>
-          Submit
-        </Button>
-      </Form>
+          <Button variant="cars" type="submit" onClick={reDirect}>
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 };
