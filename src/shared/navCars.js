@@ -27,23 +27,35 @@ const NavCars = (props) => {
         <nav ref={navRef}>
           <div className="nav-links-container">
             <button onClick={showNavBar} type="button" className="nav-display">
-              <NavLink to={`/users/${user}`} className="nav-links">
+              <NavLink
+                to={`/users/${user}/list`}
+                className={({ isActive }) => (isActive ? 'enable' : 'nav-links')}
+              >
                 My list
               </NavLink>
             </button>
             <button onClick={showNavBar} type="button" className="nav-display">
-              <NavLink to={`/users/${user}/cars`} className="nav-links">
+              <NavLink
+                to={`/users/${user}/cars/add`}
+                className={({ isActive }) => (isActive ? 'enable' : 'nav-links')}
+              >
                 Add Car
               </NavLink>
             </button>
             <button onClick={showNavBar} type="button" className="nav-display">
-              <NavLink to={`/users/${user}/cars/delete`} className="nav-links">
+              <NavLink
+                to={`/users/${user}/cars/delete`}
+                className={({ isActive }) => (isActive ? 'enable' : 'nav-links')}
+              >
                 Delete Car
               </NavLink>
             </button>
 
             <button onClick={showNavBar} type="button" className="nav-display">
-              <NavLink to={`/users/${user}/appointments`} className="nav-links">
+              <NavLink
+                to={`/users/${user}/appointments`}
+                className={({ isActive }) => (isActive ? 'enable' : 'nav-links')}
+              >
                 Appointments
               </NavLink>
             </button>
@@ -67,7 +79,7 @@ const NavCars = (props) => {
         <button
           type="button"
           onClick={showNavBar}
-          className="nav-btn"
+          className="nav-btn menu-btn"
         >
           <FaBars />
         </button>

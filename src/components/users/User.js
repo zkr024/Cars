@@ -54,7 +54,7 @@ const User = () => {
             <Form.Label>Age</Form.Label>
             <Form.Control name="age" type="number" placeholder="Enter age" required />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="cars" type="submit">
             Submit
           </Button>
           <Form.Group className="mb-3" controlId="formBasicSignUp">

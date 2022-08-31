@@ -6,15 +6,15 @@ function AppointmentsListItem(props) {
   } = props;
 
   return (
-    <li key={id}>
-      {userName}
-      {carModel}
-      {sellerName}
-      {cityName}
-      {duration}
-      {branch}
-      {dateFor}
-    </li>
+    <div key={id} className="app-table-content">
+      <div>{userName}</div>
+      <div>{sellerName}</div>
+      <div>{carModel}</div>
+      <div>{branch}</div>
+      <div>{duration}</div>
+      <div>{cityName}</div>
+      <div>{dateFor}</div>
+    </div>
   );
 }
 

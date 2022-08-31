@@ -3,7 +3,7 @@ const checkData = (setIsSubmitted, handleClick) => {
     setIsSubmitted(true);
     handleClick(true);
     const user = localStorage.getItem('user_id');
-    window.location.href = `/users/${user}`;
+    window.location.href = `/users/${user}/list`;
   } else {
     setIsSubmitted(false);
     handleClick(false);

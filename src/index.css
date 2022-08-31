@@ -49,11 +49,12 @@ code {
 .btn-cars {
   background-color: #97bf11;
   color: white;
-  border-radius: 20px;
+  border-radius: 18px;
+  font-weight: bold;
 }
 
 .btn-cars:hover {
-  background-color: #ffb400;
-  color: white;
-  border: 1px solid #ffb400;
+  background-color: #fff;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
 }
