@@ -1,0 +1,66 @@
+
+.page-appointment {
+  height: 100%;
+  padding-top: 100px;
+  margin-left: 12%;
+}
+
+.movement {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.scroll-btn {
+  border: none;
+  font-size: 50px;
+  background-color: transparent;
+  color: #97bf11
+}
+
+.main-table-container {
+  margin: 70px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  position: relative;
+  scroll-behavior: smooth;
+  box-shadow: rgba(151, 191, 17, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  padding: 25px 0;
+}
+
+.app-table-title,
+.app-table-content {
+  display: flex;
+}
+
+.app-table-title h4,
+.app-table-content div {
+  min-width: 250px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.main-table-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .page-appointment {
+    height: 100%;
+    margin-left: 0;
+  }
+
+  .main-table-container {
+    margin: 50px;
+  }
+
+  .scroll-btn {
+    font-size: 25px
+  }
+
+  .app-table-title h4,
+  .app-table-content div {
+    min-width: 150px;
+  }
+}

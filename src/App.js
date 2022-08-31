@@ -40,8 +40,8 @@ function App() {
             {/* <Route path="/home" element={<Home />} /> */}
             <Route path="/logout" element={<Logout handleClick={handleCallback} />} />
             <Route path="/user" element={<User />} />
-            <Route path="/users/:userId" element={<FrontPage />} />
-            <Route path="/users/:userId/cars" element={<AllCars />} />
+            <Route path="/users/:userId/list" element={<FrontPage />} />
+            <Route path="/users/:userId/cars/add" element={<AllCars />} />
             <Route path="/users/:userId/cars/delete" element={<DeleteCar />} />
             <Route path="/users/:userId/cars/:carId" element={<Car />} />
             <Route path="/users/:userId/appointments" element={<AppointmentsList />} />

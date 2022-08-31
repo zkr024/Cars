@@ -1,10 +1,10 @@
 header {
   position: fixed;
-  min-width: 10%;
+  min-width: 12%;
   padding: 0 0 0 2rem;
   height: 100vh;
   background-color: #fff;
-  box-shadow: rgba(151, 191, 17, 0.4) 0 2px 4px, rgba(151, 191, 17, 0.3) 0 7px 13px -3px, rgba(151, 191, 17, 0.2) 0 -3px 0 inset;
+  box-shadow: rgba(151, 191, 17, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(151, 191, 17, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .logoImageHolder {
@@ -20,11 +20,9 @@ header {
 
 .nav-display {
   border: none;
-  outline: none;
-  align-self: flex-start;
   width: 100%;
   text-align: start;
-  background-color: #e2e3e5;
+  background-color: transparent;
 }
 
 .nav-links-container {
@@ -35,28 +33,25 @@ header {
   justify-content: space-around;
 }
 
-.nav-links {
+.nav-links,
+.enable {
   text-decoration: none;
-  color: #000;
   font-size: 1.3em;
-  font-weight: bold;
   padding: 15px;
-  background-color: #ddd;
   display: inline-block;
   width: 100%;
   position: relative;
 }
 
-.nav-links::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  background-color: transparent;
+.nav-links {
+  color: #000;
+  background-color:#e0e5d1;
+}
+
+.enable {
+  background-color: #97bf11;
+  color: #fff;
+  padding-left: 30px;
 }
 
 .nav-links:hover {
@@ -64,9 +59,24 @@ header {
   background-color: #97bf11;
   width: 100%;
   color: #fff;
+  padding-left: 30px;
 }
 
-.nav-links:hover::after {
+.nav-links:hover::before,
+.enable::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  border-left: 20px solid white;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.nav-links:hover::after,
+.enable::after {
   content: "";
   position: absolute;
   right: -20px;

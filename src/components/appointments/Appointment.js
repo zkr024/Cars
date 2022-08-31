@@ -53,7 +53,7 @@ const Appointment = () => {
           <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={reDirect}>
+        <Button variant="cars" type="submit" onClick={reDirect}>
           Submit
         </Button>
       </Form>
