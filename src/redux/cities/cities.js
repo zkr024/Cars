@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from '../cars/accessToken';
 
 const CITIES = 'city/city/CITIES';
 
@@ -19,7 +20,7 @@ export function getCitiesAPI(cities) {
 }
 
 export const allCities = (countryId) => async (dispatch) => {
-  const response = await axios.get(`${api}${countryId}/cities`);
+  const response = await axios.get(`${api}${countryId}/cities`, { headers: { Authorization: accessToken() } });
   dispatch(getCitiesAPI(response.data));
 };
 

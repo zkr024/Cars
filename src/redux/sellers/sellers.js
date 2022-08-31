@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from '../cars/accessToken';
 
 const SELLERS = 'seller/seller/SELLERS';
 
@@ -22,7 +23,7 @@ export function getSellersAPI(sellers) {
 export const allSellers = () => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
-    const response = await axios.get(api);
+    const response = await axios.get(api, { headers: { Authorization: accessToken() } });
     dispatch(getSellersAPI(response.data));
   }, 1000);
   Loading = true;

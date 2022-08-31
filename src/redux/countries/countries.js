@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from '../cars/accessToken';
 
 const COUNTRIES = 'country/country/COUNTRIES';
 
@@ -21,7 +22,7 @@ export function getCountryAPI(countries) {
 export const allCountries = () => async (dispatch) => {
   if (Loading) return;
   setTimeout(async () => {
-    const response = await axios.get(api);
+    const response = await axios.get(api, { headers: { Authorization: accessToken() } });
     dispatch(getCountryAPI(response.data));
   }, 1000);
   Loading = true;
