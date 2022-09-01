@@ -36,11 +36,7 @@ const Appointment = () => {
       setIsSubmitted(true);
     }
   };
-  // const reDirect = () => {
-  //   if (setValidated(true)) {
-  //     window.location.href = `/users/${userId}/appointments`;
-  //   }
-  // };
+
   // eslint-disable-next-line implicit-arrow-linebreak
   const toDay = new Date().toISOString().substring(0, 10);
   const renderForm = (
