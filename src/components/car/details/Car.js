@@ -3,8 +3,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
-import { getDetails } from '../../redux/cars/details';
-import '../../assets/details.css';
+import { getDetails } from '../../../redux/cars/details';
+import '../../../assets/details.css';
 
 const Car = () => {
   const { carId, userId } = useParams();
@@ -21,7 +21,7 @@ const Car = () => {
       { details.length === 0
         ? (
           <img
-            src={require('../../assets/gift/car.gif')}
+            src={require('../../../assets/gift/car.gif')}
             alt="car gift"
             className="car_gif"
           />
@@ -31,7 +31,7 @@ const Car = () => {
             <div className="ImgHolder">
               <img
                 className="detailsImage"
-                src={require(`../../assets/images/${value.photo}`)}
+                src={require(`../../../assets/images/${value.photo}`)}
                 alt="cars from png site"
               />
             </div>
