@@ -12,23 +12,21 @@ function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
-
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
       setValidated(true);
     } else {
       const formData = new FormData(event.target);
       const formDataObj = Object.fromEntries(formData.entries());
-      dispatch(loginUser(formDataObj.email, formDataObj.password));
-      dispatch(getUser(formDataObj.email));
+      setTimeout(() => { dispatch(loginUser(formDataObj.email, formDataObj.password)); }, 1000);
+      setTimeout(() => { dispatch(getUser(formDataObj.email)); }, 1000);
       setValidated(true);
-      setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 3000);
+      setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 1000);
     }
   };
-
   const renderForm = (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -50,6 +48,7 @@ function Login({ handleClick }) {
           </Form.Control.Feedback>
         </InputGroup>
       </Form.Group>
+      {/* <Button variant="cars" type="submit" onClick={reDirect}> */}
       <Button variant="cars" type="submit">
         Submit
       </Button>

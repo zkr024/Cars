@@ -1,4 +1,5 @@
 import axios from 'axios';
+import accessToken from '../redux/cars/accessToken';
 
 const axiosBasic = () => axios.create({
   baseURL: 'http://localhost:3000',
@@ -11,7 +12,7 @@ const axiosJWT = () => axios.create({
   baseURL: 'http://localhost:3000',
   timeout: 1000,
   headers: {
-    Authorization: `Bearer ${localStorage.token}`,
+    Authorization: `Bearer ${accessToken()}`,
   },
 });
 

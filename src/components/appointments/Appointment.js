@@ -12,24 +12,26 @@ const Appointment = () => {
   const { userId, carId } = useParams();
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      setValidated(true);
+    } else {
+      const formData = new FormData(event.target);
+      const formDataObj = Object.fromEntries(formData.entries());
+      dispatch(postAppointment(
+        userId,
+        carId,
+        formDataObj.seller_id,
+        formDataObj.city_id,
+        formDataObj.date_for,
+        formDataObj.duration,
+        formDataObj.branch,
+      ));
+      setValidated(true);
     }
-    setValidated(true);
-    const formData = new FormData(event.target);
-    const formDataObj = Object.fromEntries(formData.entries());
-    dispatch(postAppointment(
-      userId,
-      carId,
-      formDataObj.seller_id,
-      formDataObj.city_id,
-      formDataObj.date_for,
-      formDataObj.duration,
-      formDataObj.branch,
-    ));
   };
   const reDirect = () => {
     window.location.href = `/users/${userId}/appointments`;
@@ -70,7 +72,6 @@ const Appointment = () => {
               Please enter branch.
             </Form.Control.Feedback>
           </Form.Group>
-
           <Button variant="cars" type="submit" onClick={reDirect}>
             Submit
           </Button>

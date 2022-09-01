@@ -10,11 +10,11 @@ const GET_USER = 'cars/users/GET_USER';
 export default function users(state = [], action) {
   switch (action.type) {
     case AUTHENTICATE_USER:
-      return action.payload;
+      return action;
     case CREATE_USER:
       return action.payload;
     case GET_USER:
-      return action.payload;
+      return action;
     default:
       return state;
   }
@@ -40,7 +40,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
 export const getUser = (email) => async (dispatch) => {
   try {
-    const data = { email: `${email}` };
+    const data = { email };
     const params = JSON.stringify(data);
     const res = await ApiServices.getUserByEmail(params);
     if (res.data) {

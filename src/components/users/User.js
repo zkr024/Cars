@@ -20,10 +20,10 @@ const User = () => {
       }
     }
   }, [isCPasswordDirty]);
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
       setValidated(true);
     } else {
@@ -40,7 +40,7 @@ const User = () => {
       setValidated(true);
       setTimeout(() => {
         window.location.href = '/';
-      }, 1000);
+      }, 2000);
     }
   };
   const checkPasswords = () => {
