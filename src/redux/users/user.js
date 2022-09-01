@@ -12,7 +12,7 @@ export default function users(state = [], action) {
     case AUTHENTICATE_USER:
       return action;
     case CREATE_USER:
-      return action;
+      return action.payload;
     case GET_USER:
       return action;
     default:
@@ -40,7 +40,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
 export const getUser = (email) => async (dispatch) => {
   try {
-    const data = { email: `${email}` };
+    const data = { email };
     const params = JSON.stringify(data);
     const res = await ApiServices.getUserByEmail(params);
     if (res.data) {
