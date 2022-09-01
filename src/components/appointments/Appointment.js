@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
@@ -10,9 +10,15 @@ import '../../assets/appointmentForm.css';
 
 const Appointment = () => {
   const { userId, carId } = useParams();
+  const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
     const formData = new FormData(event.target);
     const formDataObj = Object.fromEntries(formData.entries());
     dispatch(postAppointment(
@@ -34,23 +40,35 @@ const Appointment = () => {
     <div className="page-position">
       <h1>Appointment Component</h1>
       <div className="form-appointment">
-        <Form onSubmit={handleSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Cities />
           <Sellers />
 
           <Form.Group className="mb-3" controlId="formBasicDate">
             <Form.Label>Select Date</Form.Label>
-            <Form.Control name="date_for" type="date" defaultValue={toDay} />
+            <Form.Control name="date_for" type="date" defaultValue={toDay} required />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please enter date.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicDuration">
             <Form.Label>Duration (in minutes)</Form.Label>
-            <Form.Control name="duration" type="number" placeholder="Enter duration" autoComplete="off" />
+            <Form.Control name="duration" type="number" placeholder="Enter duration" autoComplete="off" required />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please enter duration.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicBranch">
             <Form.Label>Enter Branch</Form.Label>
-            <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" />
+            <Form.Control name="branch" type="text" placeholder="Enter Branch" autoComplete="off" required />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Please enter branch.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Button variant="cars" type="submit" onClick={reDirect}>

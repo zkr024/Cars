@@ -10,11 +10,11 @@ const GET_USER = 'cars/users/GET_USER';
 export default function users(state = [], action) {
   switch (action.type) {
     case AUTHENTICATE_USER:
-      return action;
+      return action.payload;
     case CREATE_USER:
-      return action;
+      return action.payload;
     case GET_USER:
-      return action;
+      return action.payload;
     default:
       return state;
   }
