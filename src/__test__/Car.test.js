@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 
-import Car from '../components/details/Car';
+import Car from '../components/car/details/Car';
 
 const Container = () => {
   <BrowserRouter>

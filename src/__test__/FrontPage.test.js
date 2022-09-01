@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 
-import FrontPage from '../components/frontPage/FrontPage';
+import FrontPage from '../components/car/frontPage/FrontPage';
 
 const Container = () => {
   <BrowserRouter>

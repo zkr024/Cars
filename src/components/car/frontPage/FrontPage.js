@@ -4,15 +4,17 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel';
-import { loadInfo } from '../../redux/cars/frontPage';
+import { loadInfo } from '../../../redux/cars/frontPage';
 
-import '../../assets/front.css';
+import '../../../assets/front.css';
 
 const FrontPage = () => {
   const { userId } = useParams();
   const cars = useSelector((state) => state.list);
   const dispatch = useDispatch();
+
   useEffect(() => { dispatch(loadInfo(userId)); }, []);
+
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -32,7 +34,7 @@ const FrontPage = () => {
             { cars.length === 0
               ? (
                 <img
-                  src={require('../../assets/gift/car.gif')}
+                  src={require('../../../assets/gift/car.gif')}
                   alt="car gift"
                   className="car_gif"
                 />
@@ -45,7 +47,7 @@ const FrontPage = () => {
                         <div className="imgHolder">
                           <img
                             className="d-block w-100"
-                            src={require(`../../assets/images/${value.car.photo}`)}
+                            src={require(`../../../assets/images/${value.car.photo}`)}
                             alt="cars from png site"
                           />
                         </div>

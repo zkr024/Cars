@@ -21,17 +21,20 @@ const carList = (data) => {
 
 const AllCars = () => {
   const { userId } = useParams();
-
-  const cars = useSelector((state) => state.car);
+  const cars = useSelector((state) => state.car.data);
   const dispatch = useDispatch();
 
-  useEffect(() => { dispatch(allCars(userId)); }, []);
+  useEffect(() => {
+    if (cars === undefined) {
+      dispatch(allCars(userId));
+    }
+  });
 
   return (
     <div className="page-position">
       <h1>Car List</h1>
       <div className="cards_container">
-        { cars.length === 0
+        { cars === undefined
           ? (
             <img
               src={require('../../assets/gift/car.gif')}
@@ -40,7 +43,7 @@ const AllCars = () => {
             />
           )
           : (
-            cars.data.map((value) => carList(value))
+            cars.map((value) => carList(value))
           )}
       </div>
     </div>
