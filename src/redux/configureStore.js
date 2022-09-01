@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
+import middleware from './middleware';
+
 import users from './users/user';
 import myCarsReducer from './cars/frontPage';
 import detailReducer from './cars/details';
 import allCarsReducer from './cars/allCars';
-import middleware from './middleware';
 import allCitiesReducer from './cities/cities';
 import allCountriesReducer from './countries/countries';
 import allSellersReducer from './sellers/sellers';

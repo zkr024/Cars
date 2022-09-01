@@ -3,23 +3,31 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadInfo } from '../../redux/cars/frontPage';
-import deleteCar from '../../redux/cars/deleteCars';
+import { loadInfo, removeCar } from '../../redux/cars/frontPage';
 
 import '../../assets/front.css';
 
 const DeleteCar = () => {
   const { userId } = useParams();
-  const cars = useSelector((state) => state.list);
+  const cars = useSelector((state) => state.list.data);
   const dispatch = useDispatch();
-  useEffect(() => { dispatch(loadInfo(userId)); }, []);
+
+  useEffect(() => {
+    if (cars === undefined) {
+      dispatch(loadInfo(userId));
+    }
+  });
+
+  const remove = (id) => {
+    dispatch(removeCar(userId, id));
+  };
 
   return (
     <div className="page-position">
       <div className="list-container">
         <h1>Remove cars from your list</h1>
         <div className="cards_container">
-          { cars.length === 0
+          { cars === undefined
             ? (
               <img
                 src={require('../../assets/gift/car.gif')}
@@ -28,7 +36,7 @@ const DeleteCar = () => {
               />
             )
             : (
-              cars.data.map((value) => (
+              cars.map((value) => (
                 <div className="carCard" key={value.car.id}>
                   <div className="carImageHolder">
                     <img
@@ -39,16 +47,13 @@ const DeleteCar = () => {
                   </div>
                   <div className="carData">
                     <div>{ value.car.model }</div>
-                    <form
-                      onSubmit={() => deleteCar(userId, value.id)}
+                    <button
+                      type="button"
+                      className="btn-delete"
+                      onClick={() => remove(value.id)}
                     >
-                      <button
-                        type="submit"
-                        className="btn-delete"
-                      >
-                        Delete
-                      </button>
-                    </form>
+                      Delete
+                    </button>
                   </div>
                 </div>
               ))

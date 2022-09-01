@@ -2,9 +2,8 @@
 /* eslint-disable global-require */
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import axios from 'axios';
-import accessToken from '../../redux/cars/accessToken';
+import { useDispatch } from 'react-redux';
+import { addCar } from '../../redux/cars/allCars';
 
 const CarCard = (props) => {
   const {
@@ -12,48 +11,37 @@ const CarCard = (props) => {
   } = props;
 
   const { userId } = useParams();
+  const dispatch = useDispatch();
 
-  const [object, setObject] = useState({});
-
-  const newCarToList = (e) => {
+  const newCarToList = async (e) => {
     const newCar = {
       car_id: parseInt(e.target.id, 10),
       user_id: parseInt(userId, 10),
     };
-    setObject(newCar);
-  };
-
-  const newCar = async () => {
-    await axios.post(`http://localhost:3000/users/${userId}/selections`, object, {
-      headers: { Authorization: accessToken() },
-    });
+    dispatch(addCar(userId, newCar));
   };
 
   return (
-    <form
-      onSubmit={newCar}
-    >
-      <div key={id} className="carCard">
-        <div className="carImageHolder">
-          <img
-            src={require(`../../assets/images/${photo}`)}
-            alt="cars from png site"
-            className="cardImage"
-          />
-        </div>
-        <div className="carData">
-          <div>{ model }</div>
-          <button
-            className="addCar-btn"
-            type="submit"
-            onClick={newCarToList}
-            id={id}
-          >
-            Add Car
-          </button>
-        </div>
+    <div key={id} className="carCard">
+      <div className="carImageHolder">
+        <img
+          src={require(`../../assets/images/${photo}`)}
+          alt="cars from png site"
+          className="cardImage"
+        />
       </div>
-    </form>
+      <div className="carData">
+        <div>{ model }</div>
+        <button
+          className="addCar-btn"
+          type="button"
+          onClick={newCarToList}
+          id={id}
+        >
+          Add Car
+        </button>
+      </div>
+    </div>
   );
 };
 
