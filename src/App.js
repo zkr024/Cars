@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import FrontPage from './components/car/frontPage/FrontPage';
