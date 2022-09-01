@@ -31,7 +31,7 @@ const NavCars = (props) => {
                 to={`/users/${user}/list`}
                 className={({ isActive }) => (isActive ? 'enable' : 'nav-links')}
               >
-                My list
+                My List
               </NavLink>
             </button>
             <button onClick={showNavBar} type="button" className="nav-display">

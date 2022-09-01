@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -81,11 +82,20 @@ const Appointment = () => {
     </div>
   );
   return (
-    <div>
+    <div className="appointment-success">
       { isSubmitted
         ? (
           <>
-            <div className="meesage-sucess"> Appointment Created!!!! </div>
+            <div className="message-success">
+              Appointment Created!!!!
+              <div className="appointment-completed">
+                <img
+                  src={require('../../assets/gift/checkmark.gif')}
+                  alt="car gift"
+                  className="car_gif"
+                />
+              </div>
+            </div>
           </>
         )
         : renderForm }
