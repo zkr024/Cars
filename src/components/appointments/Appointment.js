@@ -9,10 +9,12 @@ import { postAppointment } from '../../redux/appointments/appointments';
 import '../../assets/appointmentForm.css';
 
 const Appointment = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const { userId, carId } = useParams();
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -31,14 +33,17 @@ const Appointment = () => {
         formDataObj.branch,
       ));
       setValidated(true);
+      setIsSubmitted(true);
     }
   };
-  const reDirect = () => {
-    window.location.href = `/users/${userId}/appointments`;
-  };
+  // const reDirect = () => {
+  //   if (setValidated(true)) {
+  //     window.location.href = `/users/${userId}/appointments`;
+  //   }
+  // };
   // eslint-disable-next-line implicit-arrow-linebreak
   const toDay = new Date().toISOString().substring(0, 10);
-  return (
+  const renderForm = (
     <div className="page-position">
       <h1>Appointment Component</h1>
       <div className="form-appointment">
@@ -72,12 +77,24 @@ const Appointment = () => {
               Please enter branch.
             </Form.Control.Feedback>
           </Form.Group>
-          <Button variant="cars" type="submit" onClick={reDirect}>
+          <Button variant="cars" type="submit">
             Submit
           </Button>
         </Form>
       </div>
     </div>
   );
+  return (
+    <div>
+      { isSubmitted
+        ? (
+          <>
+            <div className="meesage-sucess"> Appointment Created!!!! </div>
+          </>
+        )
+        : renderForm }
+    </div>
+  );
 };
+
 export default Appointment;

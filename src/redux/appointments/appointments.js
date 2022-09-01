@@ -7,7 +7,6 @@ const CREATE_APPOINTMENT = 'appointment/appointment/CREATE_APPOINTMENT';
 const api = 'http://localhost:3000/users/';
 
 const initialState = [];
-let Loading = false;
 
 export function getAppointmentAPI(appointments) {
   return {
@@ -48,12 +47,8 @@ export const postAppointment = (userId, carId, sellerId, cityId,
 };
 
 export const allAppointments = (userId) => async (dispatch) => {
-  if (Loading) return;
-  setTimeout(async () => {
-    const response = await axios.get(`${api}${userId}/appointments`, { headers: { Authorization: accessToken() } });
-    dispatch(getAppointmentAPI(response.data));
-  }, 1000);
-  Loading = true;
+  const response = await axios.get(`${api}${userId}/appointments`, { headers: { Authorization: accessToken() } });
+  dispatch(getAppointmentAPI(response.data));
 };
 
 const allAppointmentsReducer = (state = initialState, action) => {
@@ -61,7 +56,7 @@ const allAppointmentsReducer = (state = initialState, action) => {
     case APPOINTMENTS:
       return action.payload;
     case CREATE_APPOINTMENT:
-      return action.payload;
+      return state;
     default:
       return state;
   }
