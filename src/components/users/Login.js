@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, InputGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -10,29 +10,45 @@ import '../../assets/access.css';
 
 function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
+    const form = event.currentTarget;
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const formDataObj = Object.fromEntries(formData.entries());
-    dispatch(loginUser(formDataObj.email, formDataObj.password));
-    dispatch(getUser(formDataObj.email));
-    setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 1000);
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      setValidated(true);
+    } else {
+      const formData = new FormData(event.target);
+      const formDataObj = Object.fromEntries(formData.entries());
+      setTimeout(() => { dispatch(loginUser(formDataObj.email, formDataObj.password)); }, 1000);
+      setTimeout(() => { dispatch(getUser(formDataObj.email)); }, 1000);
+      setValidated(true);
+      setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 1000);
+    }
   };
-
   const renderForm = (
-    <Form onSubmit={handleSubmit}>
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control name="email" type="email" placeholder="Enter email" />
-        {/* {renderErrorMessage("email")} */}
+        <Form.Label>Email</Form.Label>
+        <Form.Control name="email" type="email" placeholder="Enter email" required />
+        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">
+          Please enter your email.
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control name="password" type="password" placeholder="Password" />
-        {/* {renderErrorMessage("password")} */}
+        <InputGroup hasValidation>
+          <Form.Control name="password" type="password" placeholder="Password" minLength={6} required />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please enter your password.
+          </Form.Control.Feedback>
+        </InputGroup>
       </Form.Group>
+      {/* <Button variant="cars" type="submit" onClick={reDirect}> */}
       <Button variant="cars" type="submit">
         Submit
       </Button>
