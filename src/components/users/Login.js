@@ -12,7 +12,7 @@ function Login({ handleClick }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
     if (form.checkValidity() === false) {
@@ -21,10 +21,10 @@ function Login({ handleClick }) {
     } else {
       const formData = new FormData(event.target);
       const formDataObj = Object.fromEntries(formData.entries());
-      setTimeout(() => { dispatch(loginUser(formDataObj.email, formDataObj.password)); }, 1000);
-      setTimeout(() => { dispatch(getUser(formDataObj.email)); }, 1000);
+      await dispatch(loginUser(formDataObj.email, formDataObj.password));
+      await dispatch(getUser(formDataObj.email));
       setValidated(true);
-      setTimeout(() => { checkData.checkData(setIsSubmitted, handleClick); }, 1000);
+      await checkData.checkData(setIsSubmitted, handleClick);
     }
   };
   const renderForm = (
