@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page-position {
+  margin-left: 15%;
+  padding-top: 100px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .routes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-position {
+    margin-left: 0;
+    padding-top: 50px;
+  }
+}

@@ -1,0 +1,64 @@
+.details-container {
+  margin: 50px;
+  display: flex;
+  box-shadow: rgba(151, 191, 17, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+}
+
+.ImgHolder {
+  width: 50%;
+}
+
+.detailsImage {
+  width: 100%;
+}
+
+.car-details {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 50px 50px;
+}
+
+.car-details p {
+  text-align: justify;
+}
+
+.appointment-btn {
+  text-decoration: none;
+  text-align: center;
+  background-color: #97bf11;
+  padding: 10px;
+  color: #fff;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 50px;
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+.appointment-btn:hover {
+  background-color: #fff;
+  color: #97bf11;
+  font-weight: bold;
+  box-shadow: rgba(151, 191, 17, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+}
+
+@media only screen and (max-width: 1400px) {
+  .details-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .car-details {
+    width: 100%;
+    align-items: center;
+  }
+
+  .appointment-btn {
+    position: relative;
+  }
+}

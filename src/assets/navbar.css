@@ -1,0 +1,157 @@
+header {
+  position: fixed;
+  min-width: 12%;
+  padding: 0 0 0 2rem;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: rgba(151, 191, 17, 0.17) 0 -23px 25px 0 inset, rgba(0, 0, 0, 0.15) 0 -36px 30px 0 inset, rgba(151, 191, 17, 0.1) 0 -79px 40px 0 inset, rgba(0, 0, 0, 0.06) 0 2px 1px, rgba(0, 0, 0, 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(0, 0, 0, 0.09) 0 16px 8px, rgba(0, 0, 0, 0.09) 0 32px 16px;
+}
+
+.logoImageHolder {
+  margin-top: 20px;
+  width: 150px;
+  text-align: center;
+  margin-left: 13px;
+}
+
+.logoImage {
+  width: 100%;
+}
+
+.nav-display {
+  border: none;
+  width: 100%;
+  text-align: start;
+  background-color: transparent;
+}
+
+.nav-links-container {
+  margin-top: 150px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.nav-links,
+.enable {
+  text-decoration: none;
+  font-size: 1.3em;
+  padding: 15px;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+
+.nav-links {
+  color: #000;
+  background-color: #e0e5d1;
+}
+
+.enable {
+  background-color: #97bf11;
+  color: #fff;
+  padding-left: 30px;
+}
+
+.nav-links:hover {
+  position: relative;
+  background-color: #97bf11;
+  width: 100%;
+  color: #fff;
+  padding-left: 30px;
+}
+
+.nav-links:hover::before,
+.enable::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  border-left: 20px solid white;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.nav-links:hover::after,
+.enable::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 0;
+  height: 100%;
+  border-left: 20px solid #97bf11;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+.nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .menu-btn,
+  .nav-close-btn {
+    font-size: 45px;
+    margin-right: 20px;
+  }
+
+  .nav-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  header {
+    position: relative;
+    border-bottom: 1px solid #000;
+    height: 90px;
+  }
+
+  .top-container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logoImageHolder {
+    margin-top: 15px;
+    margin-right: 10px;
+    width: 90px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #fff;
+    transition: 1s;
+    transform: translateX(-100vh);
+    z-index: 99;
+  }
+
+  header .responsive_nav {
+    transform: none;
+  }
+}

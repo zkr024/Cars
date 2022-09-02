@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+.frame {
+  display: flex;
+  height: 100%;
+}
+
+.user-container,
+.home-container {
+  height: 100vh;
+  width: 85%;
+  margin: 20px 50px;
+}
+
+.nav-visible {
+  display: block;
+}
+
+.nav-hidden {
+  display: none;
+}
+
+.btn-cars {
+  background-color: #97bf11;
+  color: white;
+  border-radius: 18px;
+  font-weight: bold;
+}
+
+.btn-cars:hover {
+  background-color: #fff;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+}
