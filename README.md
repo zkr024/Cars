@@ -16,7 +16,7 @@
 - CSS
 - Bootstrap
 
-### Live Demo (if available)
+### Live Demo
 
 [Cars App](https://cars-capstone.herokuapp.com/)
 
