@@ -2,6 +2,8 @@
 
 # Final Capstone project: Cars App
 
+![187727730-11c35524-c48d-48b5-8d41-fd841e1bfea8](https://user-images.githubusercontent.com/93548973/189453440-7bd146e7-75c1-43ab-8cc4-905a04e833cb.png)
+
 ## Description
 
 >An app that allows the user to select cars to book a test drive appointment.
