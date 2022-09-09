@@ -3,7 +3,7 @@ import accessToken from '../cars/accessToken';
 
 const SELLERS = 'seller/seller/SELLERS';
 
-const api = 'http://localhost:3000/sellers/';
+const api = 'https://cars-api-bk.herokuapp.com/sellers/';
 
 const initialState = [];
 let Loading = false;

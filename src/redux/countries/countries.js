@@ -3,7 +3,7 @@ import accessToken from '../cars/accessToken';
 
 const COUNTRIES = 'country/country/COUNTRIES';
 
-const api = 'http://localhost:3000/countries';
+const api = 'https://cars-api-bk.herokuapp.com/countries';
 
 const initialState = [];
 let Loading = false;

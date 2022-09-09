@@ -3,7 +3,7 @@ import accessToken from '../cars/accessToken';
 
 const CITIES = 'city/city/CITIES';
 
-const api = 'http://localhost:3000/countries/';
+const api = 'https://cars-api-bk.herokuapp.com/countries/';
 
 const initialState = [];
 

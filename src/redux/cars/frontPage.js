@@ -5,7 +5,7 @@ import accessToken from './accessToken';
 const MY_CARS = 'cars/cars/MY_CARS';
 const DELETE_CAR = 'cars/cars/DELETE_CAR';
 
-const api = 'http://localhost:3000/users/';
+const api = 'https://cars-api-bk.herokuapp.com/users/';
 
 const myCarsReducer = (state = [], action) => {
   switch (action.type) {

@@ -3,7 +3,7 @@ import accessToken from './accessToken';
 
 const DETAILS = 'cars/cars/DETAILS';
 
-const api = 'http://localhost:3000/users/';
+const api = 'https://cars-api-bk.herokuapp.com/users/';
 
 const detailReducer = (state = [], action) => {
   switch (action.type) {

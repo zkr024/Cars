@@ -4,7 +4,7 @@ import accessToken from '../cars/accessToken';
 const APPOINTMENTS = 'appointment/appointment/APPOINTMENTS';
 const CREATE_APPOINTMENT = 'appointment/appointment/CREATE_APPOINTMENT';
 
-const api = 'http://localhost:3000/users/';
+const api = 'https://cars-api-bk.herokuapp.com/users/';
 
 const initialState = [];
 
