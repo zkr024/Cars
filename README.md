@@ -48,7 +48,7 @@ launch project locally with
     - Something is already running on port 3000
     - Would you like to run the app on another port instead? » (y/n)
 - Enter `Y` and the app open in the browser in next free port, for example:
-- http://localhost:3001/
+- `http://localhost:3001`
 
 
 ## Authors:
