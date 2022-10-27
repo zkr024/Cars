@@ -22,7 +22,7 @@
 
 ## Back-End development set up
 
-  - [Visit for Back-End setup](https://github.com/NeckerFree/CarsAPI)
+  - [Visit for Back-End setup](https://github.com/zkr024/CarsAPI)
 
 ## Front-End development set up
 
